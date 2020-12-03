@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2a50c77410d24da69b9f4606a89fbdd0" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.DICHVU" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.HOADON" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.KHACHHANG" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.NHANVIEN" Width="1.5" PointX="5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.PHONG" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.PHONGTHUE" Width="1.5" PointX="8" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.Ref_Role" Width="1.5" PointX="2.75" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="QuanLyKhachSanModel.FK__HOADON__MADV__182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyKhachSanModel.FK__HOADON__NGAY__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyKhachSanModel.FK__NHANVIEN__roleID__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyKhachSanModel.FK__PHONGTHUE__SOPHO__1CF15040" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

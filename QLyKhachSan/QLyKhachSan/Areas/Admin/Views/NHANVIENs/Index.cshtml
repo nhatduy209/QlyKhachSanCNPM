@@ -1,0 +1,81 @@
+﻿@model IEnumerable<QLyKhachSan.Models.NHANVIEN>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section header{
+    <link href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" />
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HOTEN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NGAYSINH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CMND_NV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DIACHI)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ref_Role.roleName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HOTEN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NGAYSINH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CMND_NV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DIACHI)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ref_Role.roleName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MANV }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.MANV }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MANV })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+   
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+@section scripts{
+<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+}
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>

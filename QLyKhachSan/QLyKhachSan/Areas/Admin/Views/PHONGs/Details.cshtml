@@ -1,0 +1,35 @@
+﻿@model QLyKhachSan.Models.PHONG
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PHONG</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LOAIPHONG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOAIPHONG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIAPHONG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIAPHONG)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SOPHONG }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
