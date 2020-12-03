@@ -22,6 +22,7 @@
           <Property Name="MADV" Type="int" />
           <Property Name="MAKH" Type="int" />
           <Property Name="NGAY" Type="date" />
+          <Property Name="TONGTIEN" Type="float" />
         </EntityType>
         <EntityType Name="KHACHHANG">
           <Key>
@@ -170,6 +171,7 @@
           <Property Name="NGAY" Type="DateTime" Precision="0" />
           <NavigationProperty Name="DICHVU" Relationship="Self.FK__HOADON__MADV__182C9B23" FromRole="HOADON" ToRole="DICHVU" />
           <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__HOADON__NGAY__173876EA" FromRole="HOADON" ToRole="KHACHHANG" />
+          <Property Name="TONGTIEN" Type="Double" />
         </EntityType>
         <EntityType Name="KHACHHANG">
           <Key>
@@ -317,6 +319,7 @@
           <EntitySetMapping Name="HOADONs">
             <EntityTypeMapping TypeName="QuanLyKhachSanModel.HOADON">
               <MappingFragment StoreEntitySet="HOADON">
+                <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
                 <ScalarProperty Name="MAHD" ColumnName="MAHD" />
                 <ScalarProperty Name="TENHD" ColumnName="TENHD" />
                 <ScalarProperty Name="MADV" ColumnName="MADV" />

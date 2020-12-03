@@ -17,6 +17,7 @@
     <Property Name="MADV" Type="int" />
     <Property Name="MAKH" Type="int" />
     <Property Name="NGAY" Type="date" />
+    <Property Name="TONGTIEN" Type="float" />
   </EntityType>
   <EntityType Name="KHACHHANG">
     <Key>

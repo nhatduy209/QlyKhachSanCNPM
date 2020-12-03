@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "ChartBar";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<!-- Bar Chart -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary"> Biểu đồ doanh thu hàng tháng</h6>
+    </div>
+    <div class="card-body">
+        <div class="chart-bar">
+            <canvas id="myChart"></canvas>
+        </div>
+        <hr>      
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+@{ 
+    var dbDoanhthu = new QLyKhachSan.Models.QuanLyKhachSanEntities();
+    // lấy ra tháng hiện tại 
+    DateTime monthNow = DateTime.Now;
+    var test1 = monthNow.Day;
+    var test2 = monthNow.Date;
+    var doanhthu = dbDoanhthu.HOADONs.Where(x => x.NGAY.Value.Month == monthNow.Month).ToList();
+
+    // tính tổng doanh thu theo các kỳ 
+    // từ ngày 1-> 7 
+    var doanhthuTuan1 = dbDoanhthu.HOADONs.Where(x => x.NGAY.Value.Month == monthNow.Month && x.NGAY.Value.Day >= 1 && x.NGAY.Value.Day <= 7).ToList();
+    var TienThuTuan1 = 0;
+    foreach ( var item in doanhthuTuan1)
+    {
+        TienThuTuan1 += Convert.ToInt32(item.TONGTIEN);
+    }
+
+    // từ ngày 8 -> 15 
+    var doanhthuTuan2 = dbDoanhthu.HOADONs.Where(x => x.NGAY.Value.Month == monthNow.Month && x.NGAY.Value.Day > 7 && x.NGAY.Value.Day <= 16).ToList();
+    var TienThuTuan2 = 0;
+    foreach (var item in doanhthuTuan2)
+    {
+        TienThuTuan2 += Convert.ToInt32(item.TONGTIEN);
+    }
+
+    // từ ngày 16 -> 23
+    var doanhthuTuan3 = dbDoanhthu.HOADONs.Where(x => x.NGAY.Value.Month == monthNow.Month && x.NGAY.Value.Day > 16 && x.NGAY.Value.Day <= 23).ToList();
+    var TienThuTuan3 = 0;
+    foreach (var item in doanhthuTuan2)
+    {
+        TienThuTuan3 += Convert.ToInt32(item.TONGTIEN);
+    }
+
+
+
+    // từ ngày 24 -> 30
+    var doanhthuTuan4 = dbDoanhthu.HOADONs.Where(x => x.NGAY.Value.Month == monthNow.Month && x.NGAY.Value.Day > 23 && x.NGAY.Value.Day <= 30).ToList();
+    var TienThuTuan4 = 0;
+    foreach (var item in doanhthuTuan2)
+    {
+        TienThuTuan4 += Convert.ToInt32(item.TONGTIEN);
+    }
+
+
+
+
+    int[] DoanthuInt = new int[doanhthu.Count];
+    int i = 0;
+    foreach (var item in doanhthu)
+    {
+        DoanthuInt[i] = Convert.ToInt32(item.TONGTIEN);
+        i++;
+    }
+}
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['ngày 1->7', 'Ngày 8->15', 'Ngày 16->23 ', 'Ngày 24->30'],
+            datasets: [{
+                label: 'Biểu đồ doanh thu tháng' + @monthNow.Month,
+                data: [@TienThuTuan1, @TienThuTuan2, @TienThuTuan3, @TienThuTuan4],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+
+
+
+
