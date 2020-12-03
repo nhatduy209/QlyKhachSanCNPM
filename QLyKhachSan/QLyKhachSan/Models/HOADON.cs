@@ -19,6 +19,7 @@ namespace QLyKhachSan.Models
         public Nullable<int> MADV { get; set; }
         public Nullable<int> MAKH { get; set; }
         public Nullable<System.DateTime> NGAY { get; set; }
+        public Nullable<double> TONGTIEN { get; set; }
     
         public virtual DICHVU DICHVU { get; set; }
         public virtual KHACHHANG KHACHHANG { get; set; }
