@@ -11,7 +11,8 @@ namespace QLyKhachSan.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class NHANVIEN
     {
         public string MANV { get; set; }
@@ -20,7 +21,9 @@ namespace QLyKhachSan.Models
         public string CMND_NV { get; set; }
         public string DIACHI { get; set; }
         public Nullable<int> roleID { get; set; }
+        [Required]
         public string username { get; set; }
+        [Required]
         public string password { get; set; }
     
         public virtual Ref_Role Ref_Role { get; set; }
