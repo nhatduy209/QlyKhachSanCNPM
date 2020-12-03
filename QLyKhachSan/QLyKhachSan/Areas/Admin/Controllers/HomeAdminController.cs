@@ -13,5 +13,10 @@ namespace QLyKhachSan.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public ActionResult ChartBar()
+        {
+            return View();
+        }
     }
 }
