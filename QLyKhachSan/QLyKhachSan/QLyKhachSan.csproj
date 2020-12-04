@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DICHVUsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HOADONsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\NHANVIENsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PHONGsController.cs" />
@@ -1968,6 +1969,11 @@
     <Content Include="Areas\Admin\Views\DICHVUs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\DICHVUs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DICHVUs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HOADONs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HOADONs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\HOADONs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\HOADONs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HOADONs\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
