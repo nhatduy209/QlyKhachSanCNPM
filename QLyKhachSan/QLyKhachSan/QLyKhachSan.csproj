@@ -1969,6 +1969,7 @@
     <Content Include="Areas\Admin\Views\DICHVUs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\DICHVUs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DICHVUs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PHONGs\Create.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
