@@ -4,3 +4,5 @@
 *.cache
 QLyKhachSan/QLyKhachSan/bin/QLyKhachSan.pdb
 QLyKhachSan/.vs/QLyKhachSan/v16/.suo
+*.dll
+*.pdb
