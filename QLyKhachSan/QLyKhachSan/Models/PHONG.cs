@@ -20,9 +20,10 @@ namespace QLyKhachSan.Models
             this.PHONGTHUEs = new HashSet<PHONGTHUE>();
         }
     
-        public int SOPHONG { get; set; }
+        public string SOPHONG { get; set; }
         public string LOAIPHONG { get; set; }
         public Nullable<int> GIAPHONG { get; set; }
+        public string TRANGTHAI { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHONGTHUE> PHONGTHUEs { get; set; }

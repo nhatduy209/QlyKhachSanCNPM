@@ -143,6 +143,7 @@
     <Compile Include="Models\DICHVU.cs">
       <DependentUpon>QLyKS.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GenerateIDPhongThue.cs" />
     <Compile Include="Models\HOADON.cs">
       <DependentUpon>QLyKS.tt</DependentUpon>
     </Compile>
@@ -174,6 +175,15 @@
       <DependentUpon>QLyKS.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Ref_Role.cs">
+      <DependentUpon>QLyKS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>QLyKS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>QLyKS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>QLyKS.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2477,13 +2487,6 @@
     <Content Include="Areas\Content\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="Areas\Content\vendor\jquery\jquery.min.map" />
     <Content Include="Areas\Content\vendor\jquery\jquery.slim.min.map" />
-    <EntityDeploy Include="Models\QLyKS.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QLyKS.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\QLyKS.edmx.diagram">
-      <DependentUpon>QLyKS.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\NHANVIENs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\NHANVIENs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\NHANVIENs\Edit.cshtml" />
@@ -2845,6 +2848,13 @@
     <Content Include="Assets\Source\SlickNav-master\scss\core.scss" />
     <Content Include="Assets\Source\SlickNav-master\scss\slicknav.scss" />
     <Content Include="Assets\Source\SlickNav-master\scss\theme.scss" />
+    <EntityDeploy Include="Models\QLyKS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QLyKS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\QLyKS.edmx.diagram">
+      <DependentUpon>QLyKS.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

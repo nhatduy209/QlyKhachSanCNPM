@@ -20,9 +20,9 @@ namespace QLyKhachSan.Models
             this.HOADONs = new HashSet<HOADON>();
         }
     
-        public int MADV { get; set; }
+        public string MADV { get; set; }
         public string TENDV { get; set; }
-        public Nullable<int> GIADV { get; set; }
+        public Nullable<double> GIADV { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }

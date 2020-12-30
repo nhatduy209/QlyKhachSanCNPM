@@ -4,70 +4,72 @@
     <Key>
       <PropertyRef Name="MADV" />
     </Key>
-    <Property Name="MADV" Type="Int32" Nullable="false" />
-    <Property Name="TENDV" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="GIADV" Type="Int32" />
-    <NavigationProperty Name="HOADONs" Relationship="Self.FK__HOADON__MADV__182C9B23" FromRole="DICHVU" ToRole="HOADON" />
+    <Property Name="MADV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TENDV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="GIADV" Type="Double" />
+    <NavigationProperty Name="HOADONs" Relationship="Self.FK__HOADON__MADV__1CF15040" FromRole="DICHVU" ToRole="HOADON" />
   </EntityType>
   <EntityType Name="HOADON">
     <Key>
       <PropertyRef Name="MAHD" />
     </Key>
-    <Property Name="MAHD" Type="Int32" Nullable="false" />
-    <Property Name="TENHD" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="MADV" Type="Int32" />
-    <Property Name="MAKH" Type="Int32" />
+    <Property Name="MAHD" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MADV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MAKH" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="NGAY" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="DICHVU" Relationship="Self.FK__HOADON__MADV__182C9B23" FromRole="HOADON" ToRole="DICHVU" />
-    <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__HOADON__NGAY__173876EA" FromRole="HOADON" ToRole="KHACHHANG" />
     <Property Name="TONGTIEN" Type="Double" />
+    <NavigationProperty Name="DICHVU" Relationship="Self.FK__HOADON__MADV__1CF15040" FromRole="HOADON" ToRole="DICHVU" />
+    <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__HOADON__MAKH__1DE57479" FromRole="HOADON" ToRole="KHACHHANG" />
   </EntityType>
   <EntityType Name="KHACHHANG">
     <Key>
       <PropertyRef Name="MAKH" />
     </Key>
-    <Property Name="MAKH" Type="Int32" Nullable="false" />
+    <Property Name="MAKH" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="TENKH" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="NGAYSINH" Type="DateTime" Precision="0" />
     <Property Name="GIOITINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="CMND" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="SDT" Type="Int32" />
     <Property Name="QUOCTICH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="HOADONs" Relationship="Self.FK__HOADON__NGAY__173876EA" FromRole="KHACHHANG" ToRole="HOADON" />
+    <NavigationProperty Name="HOADONs" Relationship="Self.FK__HOADON__MAKH__1DE57479" FromRole="KHACHHANG" ToRole="HOADON" />
+    <NavigationProperty Name="PHONGTHUEs" Relationship="Self.FK__PHONGTHUE__MAKH__20C1E124" FromRole="KHACHHANG" ToRole="PHONGTHUE" />
   </EntityType>
   <EntityType Name="NHANVIEN">
     <Key>
       <PropertyRef Name="MANV" />
     </Key>
-    <Property Name="MANV" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MANV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="HOTEN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="NGAYSINH" Type="DateTime" Precision="0" />
     <Property Name="CMND_NV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="DIACHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="roleID" Type="Int32" />
     <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Ref_Role" Relationship="Self.FK__NHANVIEN__roleID__2E1BDC42" FromRole="NHANVIEN" ToRole="Ref_Role" />
     <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Ref_Role" Relationship="Self.FK__NHANVIEN__roleID__1ED998B2" FromRole="NHANVIEN" ToRole="Ref_Role" />
   </EntityType>
   <EntityType Name="PHONG">
     <Key>
       <PropertyRef Name="SOPHONG" />
     </Key>
-    <Property Name="SOPHONG" Type="Int32" Nullable="false" />
-    <Property Name="LOAIPHONG" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="SOPHONG" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LOAIPHONG" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="GIAPHONG" Type="Int32" />
-    <NavigationProperty Name="PHONGTHUEs" Relationship="Self.FK__PHONGTHUE__SOPHO__1CF15040" FromRole="PHONG" ToRole="PHONGTHUE" />
+    <Property Name="TRANGTHAI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PHONGTHUEs" Relationship="Self.FK__PHONGTHUE__SOPHO__1FCDBCEB" FromRole="PHONG" ToRole="PHONGTHUE" />
   </EntityType>
   <EntityType Name="PHONGTHUE">
     <Key>
       <PropertyRef Name="MADK" />
     </Key>
-    <Property Name="MADK" Type="Int32" Nullable="false" />
-    <Property Name="MAKH" Type="Int32" />
-    <Property Name="SOPHONG" Type="Int32" />
+    <Property Name="MADK" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MAKH" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SOPHONG" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="NGAYDEN" Type="DateTime" Precision="0" />
     <Property Name="NGAYDI" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="PHONG" Relationship="Self.FK__PHONGTHUE__SOPHO__1CF15040" FromRole="PHONGTHUE" ToRole="PHONG" />
+    <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__PHONGTHUE__MAKH__20C1E124" FromRole="PHONGTHUE" ToRole="KHACHHANG" />
+    <NavigationProperty Name="PHONG" Relationship="Self.FK__PHONGTHUE__SOPHO__1FCDBCEB" FromRole="PHONGTHUE" ToRole="PHONG" />
   </EntityType>
   <EntityType Name="Ref_Role">
     <Key>
@@ -75,9 +77,19 @@
     </Key>
     <Property Name="roleID" Type="Int32" Nullable="false" />
     <Property Name="roleName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="NHANVIENs" Relationship="Self.FK__NHANVIEN__roleID__2E1BDC42" FromRole="Ref_Role" ToRole="NHANVIEN" />
+    <NavigationProperty Name="NHANVIENs" Relationship="Self.FK__NHANVIEN__roleID__1ED998B2" FromRole="Ref_Role" ToRole="NHANVIEN" />
   </EntityType>
-  <Association Name="FK__HOADON__MADV__182C9B23">
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__HOADON__MADV__1CF15040">
     <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="0..1" />
     <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
     <ReferentialConstraint>
@@ -89,7 +101,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__HOADON__NGAY__173876EA">
+  <Association Name="FK__HOADON__MAKH__1DE57479">
     <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
     <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
     <ReferentialConstraint>
@@ -101,7 +113,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__NHANVIEN__roleID__2E1BDC42">
+  <Association Name="FK__PHONGTHUE__MAKH__20C1E124">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="PHONGTHUE" Type="Self.PHONGTHUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MAKH" />
+      </Principal>
+      <Dependent Role="PHONGTHUE">
+        <PropertyRef Name="MAKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NHANVIEN__roleID__1ED998B2">
     <End Role="Ref_Role" Type="Self.Ref_Role" Multiplicity="0..1" />
     <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
     <ReferentialConstraint>
@@ -113,7 +137,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PHONGTHUE__SOPHO__1CF15040">
+  <Association Name="FK__PHONGTHUE__SOPHO__1FCDBCEB">
     <End Role="PHONG" Type="Self.PHONG" Multiplicity="0..1" />
     <End Role="PHONGTHUE" Type="Self.PHONGTHUE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -133,21 +157,67 @@
     <EntitySet Name="PHONGs" EntityType="Self.PHONG" />
     <EntitySet Name="PHONGTHUEs" EntityType="Self.PHONGTHUE" />
     <EntitySet Name="Ref_Role" EntityType="Self.Ref_Role" />
-    <AssociationSet Name="FK__HOADON__MADV__182C9B23" Association="Self.FK__HOADON__MADV__182C9B23">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK__HOADON__MADV__1CF15040" Association="Self.FK__HOADON__MADV__1CF15040">
       <End Role="DICHVU" EntitySet="DICHVUs" />
       <End Role="HOADON" EntitySet="HOADONs" />
     </AssociationSet>
-    <AssociationSet Name="FK__HOADON__NGAY__173876EA" Association="Self.FK__HOADON__NGAY__173876EA">
+    <AssociationSet Name="FK__HOADON__MAKH__1DE57479" Association="Self.FK__HOADON__MAKH__1DE57479">
       <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
       <End Role="HOADON" EntitySet="HOADONs" />
     </AssociationSet>
-    <AssociationSet Name="FK__NHANVIEN__roleID__2E1BDC42" Association="Self.FK__NHANVIEN__roleID__2E1BDC42">
+    <AssociationSet Name="FK__PHONGTHUE__MAKH__20C1E124" Association="Self.FK__PHONGTHUE__MAKH__20C1E124">
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+      <End Role="PHONGTHUE" EntitySet="PHONGTHUEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NHANVIEN__roleID__1ED998B2" Association="Self.FK__NHANVIEN__roleID__1ED998B2">
       <End Role="Ref_Role" EntitySet="Ref_Role" />
       <End Role="NHANVIEN" EntitySet="NHANVIENs" />
     </AssociationSet>
-    <AssociationSet Name="FK__PHONGTHUE__SOPHO__1CF15040" Association="Self.FK__PHONGTHUE__SOPHO__1CF15040">
+    <AssociationSet Name="FK__PHONGTHUE__SOPHO__1FCDBCEB" Association="Self.FK__PHONGTHUE__SOPHO__1FCDBCEB">
       <End Role="PHONG" EntitySet="PHONGs" />
       <End Role="PHONGTHUE" EntitySet="PHONGTHUEs" />
     </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(QuanLyKhachSanModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(QuanLyKhachSanModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
   </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
 </Schema>
