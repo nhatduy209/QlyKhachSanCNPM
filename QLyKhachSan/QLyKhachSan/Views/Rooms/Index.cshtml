@@ -114,10 +114,10 @@
                     <div class="col-lg-6">
                         <div class="room-text">
                             <div class="room-title">
-                                <h2>Standard Room</h2>
+                                <h2>Family Room</h2>
                                 <div class="room-price">
                                     <span>From</span>
-                                    <h2>$99</h2>
+                                    <h2>$200</h2>
                                     <sub>/night</sub>
                                 </div>
                             </div>
@@ -149,7 +149,7 @@
                                     <span>Pool</span>
                                 </div>
                             </div>
-                            <a href="#" class="primary-btn">Book Now <i class="lnr lnr-arrow-right"></i></a>
+                            <a href="#" class="primary-btn" data-toggle="modal" data-target="#exampleModal">Book Now <i class="lnr lnr-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -204,7 +204,7 @@
                                     <span>Pool</span>
                                 </div>
                             </div>
-                            <a href="#" class="primary-btn">Book Now <i class="lnr lnr-arrow-right"></i></a>
+                            <a href="#" class="primary-btn" data-toggle="modal" data-target="#exampleModal">Book Now <i class="lnr lnr-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -259,7 +259,7 @@
                                     <span>Pool</span>
                                 </div>
                             </div>
-                            <a href="#" class="primary-btn">Book Now <i class="lnr lnr-arrow-right"></i></a>
+                            <a href="#" class="primary-btn" data-toggle="modal" data-target="#exampleModal">Book Now <i class="lnr lnr-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -314,7 +314,7 @@
                                     <span>Pool</span>
                                 </div>
                             </div>
-                            <a href="#" class="primary-btn">Book Now <i class="lnr lnr-arrow-right"></i></a>
+                            <a href="#" class="primary-btn" data-toggle="modal" data-target="#exampleModal" >Book Now <i class="lnr lnr-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -384,9 +384,127 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"> Booking Now </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="check-form">
+                            <h2>Check Availability</h2>
+                            <form id="booking_form" onsubmit="return false">
+                                <div class="datepicker">
+                                    <div class="date-select">
+                                        <p>From</p>
+                                        <input type="datetime" class="datepicker-1" id="dtp_from" />
+                                        <img src="~/Assets/img/calendar.png" alt="">
+                                    </div>
+                                    <div class="date-select to">
+                                        <p>To</p>
+                                        <input type="text" class="datepicker-2" id="dtp_to" />
+                                        <img src="~/Assets/img/calendar.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="room-quantity">
+                                    <div class="single-quantity">
+                                        <p>People</p>
+                                        <div class="pro-qty"><input type="text" value="0" id="people"></div>
+                                    </div>
+                                    <div class="single-quantity">
+                                        <p>Quantity</p>
+                                        <div class="pro-qty"><input type="text" value="0" id="quantity"></div>
+                                    </div>
+                                </div>
+
+
+                                <label for="cars">Type of Room : </label>
+                                <select name="rooms" id="rooms">
+                                    <option value="Family Rooms" >Family Rooms</option>
+                                    <option value="Standard Room">Standard Room</option>
+                                    <option value="Single Room">Single Room</option>
+                                    <option value="Double Room">Double Room</option>
+                                </select>
+
+                                <div>
+                                    <label>
+                                        Swiming pool
+                                    </label>
+                                    <input type="checkbox" id="pool">
+                                </div>
+                                <div>
+                                    <label>
+                                        Bar
+                                    </label>
+                                    <input type="checkbox" id="bar">
+                                </div>
+                                <div>
+                                    <label>
+                                        Gym
+                                    </label>
+                                    <input type="checkbox" id="gym">
+                                </div>
+
+                                <div>
+                                    <input type="text" placeholder="Full Name" id="fullname" />
+                                </div>
+                                <div>
+                                    <input type="text" placeholder="Phone number" id="phonenum" />
+                                </div>
+
+                                <input type="submit" class="btn btn-primary" value="Book">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </footer>
    
     <script src="~/Assets/js/jquery-3.3.1.min.js"></script>
+
+
+    <script>
+        $("#booking_form").submit(function () {
+            var formdata = {
+                dtp_from: $("#dtp_from").val(),
+                dtp_to: $("#dtp_to").val(),
+                people: $("#people").val(),
+                quantity: $("#quantity").val(),
+                pool: $('#pool').is(":checked"),
+                bar: $('#bar').is(":checked"),
+                gym: $('#gym').is(":checked"),
+                rooms: $("#rooms").val(),
+                fullname: $("#fullname").val(),
+                phonenum: $("#phonenum").val(),
+            }
+            console.log(formdata.pool);
+
+            $.ajax({
+                type: "POST",
+                data: formdata,
+                url: '/Rooms/Booking?dtp_from=' + formdata.dtp_from + '&dtp_from=' + formdata.dtp_to + '&people=' + formdata.people + '&quantity=' + formdata.quantity + '&pool=' + formdata.pool + '&bar=' + formdata.bar + '&gym=' + formdata.gym + '&rooms=' + formdata.rooms + '&fullname=' + formdata.fullname + '&phonenum=' + formdata.phonenum,
+                success: function (msg) { 
+                    alert(msg);
+                },
+                Error: function () {
+                    alert("Chưa đặt được phòng, Xem kỹ thông tin rồi nhập lại");
+                }
+            })
+        })
+    </script>
+
+
     <script src="~/Assets/js/bootstrap.min.js"></script>
     <script src="~/Assets/js/jquery.magnific-popup.min.js"></script>
     <script src="~/Assets/js/jquery-ui.min.js"></script>

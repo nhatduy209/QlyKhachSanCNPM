@@ -10,17 +10,10 @@
 namespace QLyKhachSan.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class PHONGTHUE
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public string MADK { get; set; }
-        public string MAKH { get; set; }
-        public string SOPHONG { get; set; }
-        public Nullable<System.DateTime> NGAYDEN { get; set; }
-        public Nullable<System.DateTime> NGAYDI { get; set; }
-    
-        public virtual KHACHHANG KHACHHANG { get; set; }
-        public virtual PHONG PHONG { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

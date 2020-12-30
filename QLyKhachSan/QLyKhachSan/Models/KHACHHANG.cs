@@ -18,9 +18,10 @@ namespace QLyKhachSan.Models
         public KHACHHANG()
         {
             this.HOADONs = new HashSet<HOADON>();
+            this.PHONGTHUEs = new HashSet<PHONGTHUE>();
         }
     
-        public int MAKH { get; set; }
+        public string MAKH { get; set; }
         public string TENKH { get; set; }
         public Nullable<System.DateTime> NGAYSINH { get; set; }
         public string GIOITINH { get; set; }
@@ -30,5 +31,7 @@ namespace QLyKhachSan.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PHONGTHUE> PHONGTHUEs { get; set; }
     }
 }

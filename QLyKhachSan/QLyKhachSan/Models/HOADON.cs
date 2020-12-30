@@ -14,10 +14,9 @@ namespace QLyKhachSan.Models
     
     public partial class HOADON
     {
-        public int MAHD { get; set; }
-        public string TENHD { get; set; }
-        public Nullable<int> MADV { get; set; }
-        public Nullable<int> MAKH { get; set; }
+        public string MAHD { get; set; }
+        public string MADV { get; set; }
+        public string MAKH { get; set; }
         public Nullable<System.DateTime> NGAY { get; set; }
         public Nullable<double> TONGTIEN { get; set; }
     

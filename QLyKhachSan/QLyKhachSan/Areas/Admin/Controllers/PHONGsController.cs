@@ -46,10 +46,10 @@ namespace QLyKhachSan.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
        
-        public ActionResult Create( string maPh , string loaiPh , string giaPh )
+        public ActionResult Create( string loaiPh , string giaPh )
         {
             PHONG ph = new PHONG();
-            ph.SOPHONG = Convert.ToInt32(maPh);
+            ph.SOPHONG = new GenerateIDPhongThue().generateIDPhong();
             ph.LOAIPHONG = loaiPh;
             ph.GIAPHONG = Convert.ToInt32(giaPh);
 
