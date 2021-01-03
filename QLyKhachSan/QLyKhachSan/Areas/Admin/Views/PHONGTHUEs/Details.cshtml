@@ -1,0 +1,110 @@
+﻿@model QLyKhachSan.Models.PHONGTHUE
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PHONGTHUE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            Khách Hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACHHANG.TENKH)
+        </dd>
+
+        <dt>
+            Ngày sinh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACHHANG.NGAYSINH)
+        </dd>
+
+        <dt>
+            Giới tính
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACHHANG.GIOITINH)
+        </dd>
+
+        <dt>
+            SDT
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACHHANG.SDT)
+        </dd>
+
+        <dt>
+            Quốc tịch
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACHHANG.QUOCTICH)
+        </dd>
+
+        <dt>
+            Ngày đến
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYDEN)
+        </dd>
+
+        <dt>
+            Ngày đi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYDI)
+        </dd>
+
+        <dt>
+            Số Phòng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PHONG.SOPHONG)
+        </dd>
+
+        <dt>
+            Loại Phòng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PHONG.LOAIPHONG)
+        </dd>
+
+        <dt>
+            Giá Phòng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PHONG.GIAPHONG)
+        </dd>
+
+      
+
+
+
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Xuất hóa đơn","", new { id = Model.MADK })
+
+</p>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MADK }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
