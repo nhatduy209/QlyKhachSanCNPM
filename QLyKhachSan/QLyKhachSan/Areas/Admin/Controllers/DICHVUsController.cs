@@ -6,10 +6,12 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using QLyKhachSan.Controllers;
 using QLyKhachSan.Models;
 
 namespace QLyKhachSan.Areas.Admin.Controllers
 {
+    [CheckPermission("Admin", "Nhân Viên")]
     public class DICHVUsController : Controller
     {
         private QuanLyKhachSanEntities db = new QuanLyKhachSanEntities();
