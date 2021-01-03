@@ -58,6 +58,7 @@ namespace QLyKhachSan.Areas.Admin.Controllers
         public ActionResult Create([Bind(Include = "MANV,HOTEN,NGAYSINH,CMND_NV,DIACHI,roleID,username,password")] NHANVIEN nHANVIEN)
         {
             nHANVIEN.MANV = "NV-" + RandomString(22);
+            nHANVIEN.NGAYSINH = Convert.ToDateTime(Request.Form["birthdaytime"]);
             if (ModelState.IsValid)
             {
                 db.NHANVIENs.Add(nHANVIEN);

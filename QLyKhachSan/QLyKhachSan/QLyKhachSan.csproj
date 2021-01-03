@@ -140,25 +140,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DICHVU.cs">
-      <DependentUpon>QLyKS.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\GenerateIDPhongThue.cs" />
-    <Compile Include="Models\HOADON.cs">
-      <DependentUpon>QLyKS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\KHACHHANG.cs">
-      <DependentUpon>QLyKS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NHANVIEN.cs">
-      <DependentUpon>QLyKS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PHONG.cs">
-      <DependentUpon>QLyKS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PHONGTHUE.cs">
-      <DependentUpon>QLyKS.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\QLyKS.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -173,18 +155,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QLyKS.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Ref_Role.cs">
-      <DependentUpon>QLyKS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>QLyKS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>QLyKS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>QLyKS.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

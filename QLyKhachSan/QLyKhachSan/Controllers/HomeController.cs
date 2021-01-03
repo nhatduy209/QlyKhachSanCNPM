@@ -43,7 +43,7 @@ namespace QLyKhachSan.Controllers
                 var data = db.NHANVIENs.Where(s => s.username.Equals(users) && s.password.Equals(password)).ToList();
                 if (data.Count() > 0)
                 {
-                    Session["staff"] = user.roleID;
+                    Session["staff"] = user.MANV;
                     if (user.roleID == 4)
                         return Content("false");
                     if (user.roleID == 3)

@@ -14,6 +14,12 @@ namespace QLyKhachSan.Models
     
     public partial class PHONGTHUE
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PHONGTHUE()
+        {
+            this.DICHVUs = new HashSet<DICHVU>();
+        }
+    
         public string MADK { get; set; }
         public string MAKH { get; set; }
         public string SOPHONG { get; set; }
@@ -22,5 +28,7 @@ namespace QLyKhachSan.Models
     
         public virtual KHACHHANG KHACHHANG { get; set; }
         public virtual PHONG PHONG { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DICHVU> DICHVUs { get; set; }
     }
 }

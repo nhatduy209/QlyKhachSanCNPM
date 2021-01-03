@@ -57,7 +57,7 @@
             </div>
 
             <div class="modal-body">
-                <form id="form_add" method="post"  >
+                <form id="form_add" method="post" onsubmit="return false"  >
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label> Loại phòng </label>
@@ -66,6 +66,10 @@
                         <div>
                             <label> Giá phòng  </label>
                             <input name="giaPH" type="text" class="form-control" style="width:228px" id="idGiaPh">
+                        </div>
+                        <div>
+                            <label> Miêu tả phòng  </label>
+                            <input name="mieutaPh" type="text" class="form-control" style="width:228px" id="idMieutaPh">
                         </div>
                     </div>
                     <input type="submit" class="btn btn-success" value="Thêm"/>
@@ -86,6 +90,7 @@
             var form_data = {
                 loaiPh: $("#idLoaiPh").val(),
                 giaPh: $("#idGiaPh").val(),
+                mieutaPh: $("#idMieutaPh").val(),
             }
             $.ajax({
                 url: "/Admin/PHONGs/Create",
@@ -93,9 +98,9 @@
                 type: 'POST',
                 async: true,
                 success: function (result) {
-                    alert(result);
                     if (result === 'true') {
                         alert("Thêm phòng thành công");
+                        window.location.reload();
                     }
                     else {
                         alert("Thêm phòng không thành công");

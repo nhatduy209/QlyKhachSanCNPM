@@ -64,10 +64,10 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/Admin/NHANVIENs/Create">Thêm nhân viên</a>
-                        <a class="collapse-item" href="cards.html"> thêm dịch vụ </a>
-                        <a class="collapse-item" href="cards.html"> thêm phòng </a>
-                        <a class="collapse-item" href="/Admin/HOADONs/Index"> xem hóa đơn </a>
+                        <a class="collapse-item" href="/Admin/NHANVIENs/Index">Nhân viên</a>
+                        <a class="collapse-item" href="/Admin/DICHVUs/Index">Dịch vụ </a>
+                        <a class="collapse-item" href="/Admin/PHONGs/Index">Phòng </a>
+                        <a class="collapse-item" href="/Admin/HOADONs/Index">Hóa đơn </a>
                     </div>
                 </div>
             </li>
@@ -349,11 +349,16 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> Phòng</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">  Tổng Số Phòng</div>
+                                            @{ 
+                                                var context =new QLyKhachSan.Models.QuanLyKhachSanEntities();
+                                                var lstPhong = context.PHONGs.ToList();
+                                            }
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"> @lstPhong.Count</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <i class="fas fa-hotel fa-2x text-gray-300"></i>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -367,7 +372,18 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1"> Doanh thu hàng tháng </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                            @{ 
+                                                var dtNow = DateTime.Now;
+                                                var lstBill = context.HOADONs.Where(x => x.NGAY.Value.Month == dtNow.Month).ToList();
+                                                double totalCost = 0;
+                                                foreach( var item in lstBill)
+                                                {
+                                                    totalCost += Convert.ToDouble(item.TONGTIEN);
+                                                }
+
+
+                                            }
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"> @totalCost</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -385,8 +401,11 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1"> Đặt phòng online </div>
                                             <div class="row no-gutters align-items-center">
+                                                @{ 
+                                                    var lstPhongThue = context.PHONGTHUEs.ToList();
+                                                }
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"> @lstPhongThue.Count</div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="progress progress-sm mr-2">
@@ -409,11 +428,14 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Tổng nhân viên </div>
+                                            @{ 
+                                                var lstUser = context.NHANVIENs.ToList().Count;
+                                                    }
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"> @lstUser </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            <i class="fas fa-user-friends fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
