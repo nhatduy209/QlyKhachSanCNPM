@@ -2851,13 +2851,6 @@
     <Content Include="Assets\Source\SlickNav-master\scss\core.scss" />
     <Content Include="Assets\Source\SlickNav-master\scss\slicknav.scss" />
     <Content Include="Assets\Source\SlickNav-master\scss\theme.scss" />
-    <EntityDeploy Include="Models\QLyKS.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QLyKS.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\QLyKS.edmx.diagram">
-      <DependentUpon>QLyKS.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\HOADONs\Create.cshtml" />
     <Content Include="Areas\Admin\Views\HOADONs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\HOADONs\Details.cshtml" />
@@ -2868,6 +2861,13 @@
     <Content Include="Areas\Admin\Views\PHONGTHUEs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\PHONGTHUEs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\PHONGTHUEs\Index.cshtml" />
+    <EntityDeploy Include="Models\QLyKS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QLyKS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\QLyKS.edmx.diagram">
+      <DependentUpon>QLyKS.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

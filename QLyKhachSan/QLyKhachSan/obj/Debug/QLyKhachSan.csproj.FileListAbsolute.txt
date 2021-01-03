@@ -246,4 +246,3 @@ D:\Github\QlyKhachSanCNPM\QLyKhachSan\QLyKhachSan\obj\Debug\QLyKhachSan.csproj.C
 D:\Github\QlyKhachSanCNPM\QLyKhachSan\QLyKhachSan\obj\Debug\QLyKhachSan.csproj.CopyComplete
 D:\Github\QlyKhachSanCNPM\QLyKhachSan\QLyKhachSan\obj\Debug\QLyKhachSan.dll
 D:\Github\QlyKhachSanCNPM\QLyKhachSan\QLyKhachSan\obj\Debug\QLyKhachSan.pdb
-D:\Github\QlyKhachSanCNPM\QLyKhachSan\QLyKhachSan\obj\Debug\QLyKhachSan.csprojAssemblyReference.cache
