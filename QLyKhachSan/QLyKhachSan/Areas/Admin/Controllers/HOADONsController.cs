@@ -10,6 +10,8 @@ using QLyKhachSan.Models;
 
 namespace QLyKhachSan.Areas.Admin.Controllers
 {
+    [CheckPermission("Admin", "Nhân Viên")]
+
     public class HOADONsController : Controller
     {
         private QuanLyKhachSanEntities db = new QuanLyKhachSanEntities();
