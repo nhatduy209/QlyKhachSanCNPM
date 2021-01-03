@@ -1798,6 +1798,7 @@
     <Content Include="Assets\css\font-awesome.min.css" />
     <Content Include="Assets\css\jquery-ui.min.css" />
     <Content Include="Assets\css\linearicons.css" />
+    <Content Include="Assets\css\login.css" />
     <Content Include="Assets\css\magnific-popup.css" />
     <Content Include="Assets\css\nice-select.css" />
     <Content Include="Assets\css\owl.carousel.min.css" />
@@ -1874,6 +1875,7 @@
     <Content Include="Assets\js\jquery.magnific-popup.min.js" />
     <Content Include="Assets\js\jquery.nice-select.min.js" />
     <Content Include="Assets\js\jquery.slicknav.js" />
+    <Content Include="Assets\js\login.js" />
     <Content Include="Assets\js\main.js" />
     <Content Include="Assets\js\owl.carousel.min.js" />
     <Content Include="Assets\main.html" />
@@ -2855,6 +2857,11 @@
     <Content Include="Models\QLyKS.edmx.diagram">
       <DependentUpon>QLyKS.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\HOADONs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HOADONs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\HOADONs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\HOADONs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HOADONs\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

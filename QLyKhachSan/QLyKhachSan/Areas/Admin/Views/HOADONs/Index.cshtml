@@ -15,16 +15,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.TENHD)
+                Mã hóa đơn
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NGAY)
+                Ngày
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TONGTIEN)
+                Dịch vụ
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.KHACHHANG.TENKH)
+                Khách hàng
+            </th>
+            <th>
+                Tổng tiền
             </th>
             <th></th>
         </tr>
@@ -34,16 +37,19 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TENHD)
+                    @Html.DisplayFor(modelItem => item.MAHD)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.NGAY)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TONGTIEN)
+                    @Html.DisplayFor(modelItem => item.DICHVU.TENDV)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.KHACHHANG.TENKH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TONGTIEN)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.MAHD }) |
