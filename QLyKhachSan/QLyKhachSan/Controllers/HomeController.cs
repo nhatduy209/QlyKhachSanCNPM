@@ -31,6 +31,29 @@ namespace QLyKhachSan.Controllers
 
             return View();
         }
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateBill([Bind(Include = "MAHD,TENHD,MADV,MAKH,NGAY,TONGTIEN")] HOADON hOADON)
+        {
+            if (ModelState.IsValid)
+            {
+                db.HOADONs.Add(hOADON);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.MADV = new SelectList(db.DICHVUs, "MADV", "TENDV", hOADON.MADV);
+            ViewBag.MAKH = new SelectList(db.KHACHHANGs, "MAKH", "TENKH", hOADON.MAKH);
+            return View(hOADON);
+        }
+
+
+
+
+
         [HttpPost]
         public ActionResult Login(FormCollection f)
         {
