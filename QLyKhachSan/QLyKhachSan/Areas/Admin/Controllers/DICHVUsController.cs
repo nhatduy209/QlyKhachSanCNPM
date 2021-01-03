@@ -48,10 +48,12 @@ namespace QLyKhachSan.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MADV,TENDV,GIADV")] DICHVU dICHVU)
+        public ActionResult Create([Bind(Include = "TENDV,GIADV")] DICHVU dICHVU)
         {
             if (ModelState.IsValid)
             {
+                string id =  new GenerateIDPhongThue().generateIDDV();
+                dICHVU.MADV = id;
                 db.DICHVUs.Add(dICHVU);
                 db.SaveChanges();
                 return RedirectToAction("Index");

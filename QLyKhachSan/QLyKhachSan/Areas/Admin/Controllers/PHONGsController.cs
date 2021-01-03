@@ -48,13 +48,14 @@ namespace QLyKhachSan.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
        
-        public ActionResult Create( string loaiPh , string giaPh )
+        public ActionResult Create( string loaiPh , string giaPh , string mieutaPh )
         {
             PHONG ph = new PHONG();
             ph.SOPHONG = new GenerateIDPhongThue().generateIDPhong();
             ph.LOAIPHONG = loaiPh;
             ph.GIAPHONG = Convert.ToInt32(giaPh);
-
+            ph.MIEUTAPHONG = mieutaPh;
+            ph.TRANGTHAI = "false";
             var exist = db.PHONGs.Where(x => x.SOPHONG == ph.SOPHONG).SingleOrDefault();
             if (exist == null)
             {

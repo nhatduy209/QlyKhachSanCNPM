@@ -8,6 +8,7 @@
     <Property Name="TENDV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="GIADV" Type="Double" />
     <NavigationProperty Name="HOADONs" Relationship="Self.FK__HOADON__MADV__1CF15040" FromRole="DICHVU" ToRole="HOADON" />
+    <NavigationProperty Name="DVKHACHes" Relationship="QuanLyKhachSanModel.FK__DVKHACH__MADV__2F10007B" FromRole="DICHVU" ToRole="DVKHACH" />
   </EntityType>
   <EntityType Name="HOADON">
     <Key>
@@ -58,6 +59,7 @@
     <Property Name="GIAPHONG" Type="Int32" />
     <Property Name="TRANGTHAI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="PHONGTHUEs" Relationship="Self.FK__PHONGTHUE__SOPHO__1FCDBCEB" FromRole="PHONG" ToRole="PHONGTHUE" />
+    <Property Name="MIEUTAPHONG" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="PHONGTHUE">
     <Key>
@@ -70,6 +72,7 @@
     <Property Name="NGAYDI" Type="DateTime" Precision="0" />
     <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__PHONGTHUE__MAKH__20C1E124" FromRole="PHONGTHUE" ToRole="KHACHHANG" />
     <NavigationProperty Name="PHONG" Relationship="Self.FK__PHONGTHUE__SOPHO__1FCDBCEB" FromRole="PHONGTHUE" ToRole="PHONG" />
+    <NavigationProperty Name="DVKHACHes" Relationship="QuanLyKhachSanModel.FK__DVKHACH__MADK__2E1BDC42" FromRole="PHONGTHUE" ToRole="DVKHACH" />
   </EntityType>
   <EntityType Name="Ref_Role">
     <Key>
@@ -208,6 +211,15 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="DVKHACHes" EntityType="QuanLyKhachSanModel.DVKHACH" />
+    <AssociationSet Name="FK__DVKHACH__MADV__2F10007B" Association="QuanLyKhachSanModel.FK__DVKHACH__MADV__2F10007B">
+      <End Role="DICHVU" EntitySet="DICHVUs" />
+      <End Role="DVKHACH" EntitySet="DVKHACHes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DVKHACH__MADK__2E1BDC42" Association="QuanLyKhachSanModel.FK__DVKHACH__MADK__2E1BDC42">
+      <End Role="PHONGTHUE" EntitySet="PHONGTHUEs" />
+      <End Role="DVKHACH" EntitySet="DVKHACHes" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -220,4 +232,38 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <EntityType Name="DVKHACH">
+    <Key>
+      <PropertyRef Name="DVK" />
+    </Key>
+    <Property Name="DVK" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="MADK" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MADV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DICHVU" Relationship="QuanLyKhachSanModel.FK__DVKHACH__MADV__2F10007B" FromRole="DVKHACH" ToRole="DICHVU" />
+    <NavigationProperty Name="PHONGTHUE" Relationship="QuanLyKhachSanModel.FK__DVKHACH__MADK__2E1BDC42" FromRole="DVKHACH" ToRole="PHONGTHUE" />
+  </EntityType>
+  <Association Name="FK__DVKHACH__MADV__2F10007B">
+    <End Type="QuanLyKhachSanModel.DICHVU" Role="DICHVU" Multiplicity="0..1" />
+    <End Type="QuanLyKhachSanModel.DVKHACH" Role="DVKHACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DICHVU">
+        <PropertyRef Name="MADV" />
+      </Principal>
+      <Dependent Role="DVKHACH">
+        <PropertyRef Name="MADV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DVKHACH__MADK__2E1BDC42">
+    <End Type="QuanLyKhachSanModel.PHONGTHUE" Role="PHONGTHUE" Multiplicity="0..1" />
+    <End Type="QuanLyKhachSanModel.DVKHACH" Role="DVKHACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONGTHUE">
+        <PropertyRef Name="MADK" />
+      </Principal>
+      <Dependent Role="DVKHACH">
+        <PropertyRef Name="MADK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>
