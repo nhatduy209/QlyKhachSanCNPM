@@ -6,147 +6,158 @@
 }
 
 <h2>Details</h2>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <form action="/HOADONs/Create/" method="post" id="createBill">
-
-        <div>
-            <h4>PHONGTHUE</h4>
-            <hr />
-            <dl class="dl-horizontal">
-
-                <dt>
-                    Khách Hàng
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.KHACHHANG.TENKH)
-                </dd>
-
-                <dt>
-                    Ngày sinh
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.KHACHHANG.NGAYSINH)
-                </dd>
-
-                <dt>
-                    Giới tính
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.KHACHHANG.GIOITINH)
-                </dd>
-
-                <dt>
-                    SDT
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.KHACHHANG.SDT)
-                </dd>
-
-                <dt>
-                    Quốc tịch
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.KHACHHANG.QUOCTICH)
-                </dd>
-
-                <dt>
-                    Ngày đến
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.NGAYDEN)
-                </dd>
-
-                <dt>
-                    Ngày đi
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.NGAYDI)
-                </dd>
-
-                <dt>
-                    Số Phòng
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.PHONG.SOPHONG)
-                </dd>
-
-                <dt>
-                    Loại Phòng
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.PHONG.LOAIPHONG)
-                </dd>
-
-                <dt>
-                    Giá Phòng
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.PHONG.GIAPHONG)
-                </dd>
-
-
-
-
-
-
-
-            </dl>
-        </div>
-
-
-
-        <button type="submit">
-            Xuat hoa don
-        </button>
-
-    </form>
-
+@{
+    var maDK = Model.MADK;
 }
 
+@Html.AntiForgeryToken()
+<form onsubmit="return false" method="post" id="createBill">
+
+    <div>
+        <h4>PHONGTHUE</h4>
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dt>
+                Ma DK
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MADK)
+            </dd>
+
+            <dt>
+                Khách Hàng
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KHACHHANG.TENKH)
+            </dd>
+
+            <dt>
+                Ngày sinh
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KHACHHANG.NGAYSINH)
+            </dd>
+
+            <dt>
+                Giới tính
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KHACHHANG.GIOITINH)
+            </dd>
+
+            <dt>
+                SDT
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KHACHHANG.SDT)
+            </dd>
+
+            <dt>
+                Quốc tịch
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KHACHHANG.QUOCTICH)
+            </dd>
+
+            <dt>
+                Ngày đến
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NGAYDEN)
+            </dd>
+
+            <dt>
+                Ngày đi
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NGAYDI)
+            </dd>
+
+            <dt>
+                Số Phòng
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PHONG.SOPHONG)
+            </dd>
+
+            <dt>
+                Loại Phòng
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PHONG.LOAIPHONG)
+            </dd>
+
+            <dt>
+                Giá Phòng
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PHONG.GIAPHONG)
+            </dd>
 
 
-<p>
-    @Html.ActionLink("Xuất hóa đơn", "Home/CreateBill", new { id = Model.MADK })
+            <dt>
+                Dich vu
+            </dt>
 
-</p>
+            <dd>
+                @foreach (var i in Model.DICHVUs)
+                {
+                    <span> @i.TENDV  </span>
+                }
+            </dd>
+
+
+
+
+        </dl>
+    </div>
+
+
+
+    <button type="submit">
+        Xuat hoa don
+    </button>
+
+</form>
+
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.MADK }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
 
+<script src="~/Scripts/jquery-3.4.1.js"></script>
 <script>
     $(document).ready(function () {
         $("#createBill").submit(function () {
-            var form_data = {
-                madk: $("#MADK").val(),
-                makh: $("#MAKH").val()
-
+            console.log("alo");
+            var formdata = {
+                maDK: '@maDK',
             };
-            $.ajax({
-                url: '/HOADONs/Create',
-                type: 'POST',
+                $.ajax({
+                    data: formdata,
+                url: '/Admin/HOADONs/CreateBill?maDK=' + '@maDK',
+                @*url: '/Home/Create?maDK=' + '@maDK',*@
+                type: 'post',
                 async: true,
-                data: form_data,
                 success: function (msg) {
                     if (msg === 'false')
                         alert("Xuất bill thất bại");
                     else {
-                        window.open(msg, '_Top');
-                        $("#authenticate_modal").close();
+                        alert(msg);
+
                     }
                 }
             });

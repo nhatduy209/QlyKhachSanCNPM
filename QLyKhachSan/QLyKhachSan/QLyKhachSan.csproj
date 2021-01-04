@@ -130,7 +130,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DICHVUsController.cs" />
-    <Compile Include="Areas\Admin\Controllers\HOADONsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\NHANVIENsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PHONGsController.cs" />
@@ -2851,11 +2850,6 @@
     <Content Include="Assets\Source\SlickNav-master\scss\core.scss" />
     <Content Include="Assets\Source\SlickNav-master\scss\slicknav.scss" />
     <Content Include="Assets\Source\SlickNav-master\scss\theme.scss" />
-    <Content Include="Areas\Admin\Views\HOADONs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\HOADONs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\HOADONs\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\HOADONs\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\HOADONs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\PHONGTHUEs\Create.cshtml" />
     <Content Include="Areas\Admin\Views\PHONGTHUEs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\PHONGTHUEs\Details.cshtml" />

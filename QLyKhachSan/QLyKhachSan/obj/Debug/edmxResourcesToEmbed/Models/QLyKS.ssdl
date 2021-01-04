@@ -21,10 +21,9 @@
       <PropertyRef Name="MAHD" />
     </Key>
     <Property Name="MAHD" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="MADV" Type="nvarchar" MaxLength="20" />
-    <Property Name="MAKH" Type="nvarchar" MaxLength="20" />
     <Property Name="NGAY" Type="date" />
     <Property Name="TONGTIEN" Type="float" />
+    <Property Name="MADK" Type="nvarchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="KHACHHANG">
     <Key>
@@ -112,27 +111,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__HOADON__MADV__1CF15040">
-    <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="0..1" />
+  <Association Name="FK__HOADON__MADK__33D4B598">
+    <End Role="PHONGTHUE" Type="Self.PHONGTHUE" Multiplicity="0..1" />
     <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="DICHVU">
-        <PropertyRef Name="MADV" />
+      <Principal Role="PHONGTHUE">
+        <PropertyRef Name="MADK" />
       </Principal>
       <Dependent Role="HOADON">
-        <PropertyRef Name="MADV" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__HOADON__MAKH__1DE57479">
-    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
-    <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="KHACHHANG">
-        <PropertyRef Name="MAKH" />
-      </Principal>
-      <Dependent Role="HOADON">
-        <PropertyRef Name="MAKH" />
+        <PropertyRef Name="MADK" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -221,12 +208,8 @@
       <End Role="DICHVU" EntitySet="DICHVU" />
       <End Role="DVKHACH" EntitySet="DVKHACH" />
     </AssociationSet>
-    <AssociationSet Name="FK__HOADON__MADV__1CF15040" Association="Self.FK__HOADON__MADV__1CF15040">
-      <End Role="DICHVU" EntitySet="DICHVU" />
-      <End Role="HOADON" EntitySet="HOADON" />
-    </AssociationSet>
-    <AssociationSet Name="FK__HOADON__MAKH__1DE57479" Association="Self.FK__HOADON__MAKH__1DE57479">
-      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+    <AssociationSet Name="FK__HOADON__MADK__33D4B598" Association="Self.FK__HOADON__MADK__33D4B598">
+      <End Role="PHONGTHUE" EntitySet="PHONGTHUE" />
       <End Role="HOADON" EntitySet="HOADON" />
     </AssociationSet>
     <AssociationSet Name="FK__NHANVIEN__roleID__1ED998B2" Association="Self.FK__NHANVIEN__roleID__1ED998B2">

@@ -15,12 +15,10 @@ namespace QLyKhachSan.Models
     public partial class HOADON
     {
         public string MAHD { get; set; }
-        public string MADV { get; set; }
-        public string MAKH { get; set; }
         public Nullable<System.DateTime> NGAY { get; set; }
         public Nullable<double> TONGTIEN { get; set; }
+        public string MADK { get; set; }
     
-        public virtual DICHVU DICHVU { get; set; }
-        public virtual KHACHHANG KHACHHANG { get; set; }
+        public virtual PHONGTHUE PHONGTHUE { get; set; }
     }
 }

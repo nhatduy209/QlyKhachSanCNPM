@@ -28,5 +28,11 @@ namespace QLyKhachSan.Models
             string genID = "Ph" + id;
             return genID;
         }
+        public string generateIDHD()
+        {
+            string id = Guid.NewGuid().ToString("N").Substring(0, 15);
+            string genID = "HD" + id;
+            return genID;
+        }
     }
 }

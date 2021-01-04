@@ -14,10 +14,9 @@
       <EntityTypeMapping TypeName="QuanLyKhachSanModel.HOADON">
         <MappingFragment StoreEntitySet="HOADON">
           <ScalarProperty Name="MAHD" ColumnName="MAHD" />
-          <ScalarProperty Name="MADV" ColumnName="MADV" />
-          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
           <ScalarProperty Name="NGAY" ColumnName="NGAY" />
           <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
+          <ScalarProperty Name="MADK" ColumnName="MADK" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

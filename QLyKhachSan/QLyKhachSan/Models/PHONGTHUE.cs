@@ -17,6 +17,7 @@ namespace QLyKhachSan.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PHONGTHUE()
         {
+            this.HOADONs = new HashSet<HOADON>();
             this.DICHVUs = new HashSet<DICHVU>();
         }
     
@@ -26,6 +27,8 @@ namespace QLyKhachSan.Models
         public Nullable<System.DateTime> NGAYDEN { get; set; }
         public Nullable<System.DateTime> NGAYDI { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HOADON> HOADONs { get; set; }
         public virtual KHACHHANG KHACHHANG { get; set; }
         public virtual PHONG PHONG { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
