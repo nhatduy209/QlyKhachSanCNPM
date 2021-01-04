@@ -85,32 +85,6 @@ namespace QLyKhachSan.Areas.Admin.Controllers
             return View(pHONGTHUE);
         }
 
-        // GET: Admin/PHONGTHUEs/Delete/5
-        public ActionResult Delete(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            PHONGTHUE pHONGTHUE = db.PHONGTHUEs.Find(id);
-            if (pHONGTHUE == null)
-            {
-                return HttpNotFound();
-            }
-            return View(pHONGTHUE);
-        }
-
-        // POST: Admin/PHONGTHUEs/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
-        {
-            PHONGTHUE pHONGTHUE = db.PHONGTHUEs.Find(id);
-            db.PHONGTHUEs.Remove(pHONGTHUE);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)
