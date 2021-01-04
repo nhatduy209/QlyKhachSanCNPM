@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a2c7c8d3fc3e41afb2b28bdd960c7193" Name="Diagram1">
-        <EntityTypeShape EntityType="QuanLyKhachSanModel.DICHVU" Width="1.5" PointX="5.625" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhachSanModel.HOADON" Width="1.5" PointX="7.375" PointY="4.75" IsExpanded="true" />
+      <Diagram DiagramId="f7a6178ee0f5426d9854485af7a93fa8" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.DICHVU" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.HOADON" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyKhachSanModel.KHACHHANG" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhachSanModel.NHANVIEN" Width="1.5" PointX="4.875" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhachSanModel.PHONG" Width="1.5" PointX="0.875" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.NHANVIEN" Width="1.5" PointX="5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.PHONG" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyKhachSanModel.PHONGTHUE" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyKhachSanModel.Ref_Role" Width="1.5" PointX="2.75" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyKhachSanModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
@@ -17,7 +17,7 @@
         <AssociationConnector Association="QuanLyKhachSanModel.FK__PHONGTHUE__MAKH__20C1E124" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyKhachSanModel.FK__NHANVIEN__roleID__1ED998B2" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyKhachSanModel.FK__PHONGTHUE__SOPHO__1FCDBCEB" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhachSanModel.DVKHACH" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyKhachSanModel.DVKH" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

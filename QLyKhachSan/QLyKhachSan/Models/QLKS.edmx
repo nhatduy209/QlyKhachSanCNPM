@@ -13,7 +13,7 @@
           <Property Name="TENDV" Type="nvarchar" MaxLength="20" />
           <Property Name="GIADV" Type="float" />
         </EntityType>
-        <EntityType Name="DVKHACH">
+        <EntityType Name="DVKH">
           <Key>
             <PropertyRef Name="MADK" />
             <PropertyRef Name="MADV" />
@@ -92,30 +92,6 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="FK__DVKHACH__MADK__31EC6D26">
-          <End Role="PHONGTHUE" Type="Self.PHONGTHUE" Multiplicity="1" />
-          <End Role="DVKHACH" Type="Self.DVKHACH" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PHONGTHUE">
-              <PropertyRef Name="MADK" />
-            </Principal>
-            <Dependent Role="DVKHACH">
-              <PropertyRef Name="MADK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__DVKHACH__MADV__32E0915F">
-          <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="1" />
-          <End Role="DVKHACH" Type="Self.DVKHACH" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DICHVU">
-              <PropertyRef Name="MADV" />
-            </Principal>
-            <Dependent Role="DVKHACH">
-              <PropertyRef Name="MADV" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__HOADON__MADK__33D4B598">
           <End Role="PHONGTHUE" Type="Self.PHONGTHUE" Multiplicity="0..1" />
           <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
@@ -164,6 +140,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DK_PHONGTHUE">
+          <End Role="PHONGTHUE" Type="Self.PHONGTHUE" Multiplicity="1" />
+          <End Role="DVKH" Type="Self.DVKH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHONGTHUE">
+              <PropertyRef Name="MADK" />
+            </Principal>
+            <Dependent Role="DVKH">
+              <PropertyRef Name="MADK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DV_DICHVU">
+          <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="1" />
+          <End Role="DVKH" Type="Self.DVKH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DICHVU">
+              <PropertyRef Name="MADV" />
+            </Principal>
+            <Dependent Role="DVKH">
+              <PropertyRef Name="MADV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -197,7 +197,7 @@
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="QuanLyKhachSanModelStoreContainer">
           <EntitySet Name="DICHVU" EntityType="Self.DICHVU" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DVKHACH" EntityType="Self.DVKHACH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DVKH" EntityType="Self.DVKH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
@@ -205,14 +205,6 @@
           <EntitySet Name="PHONGTHUE" EntityType="Self.PHONGTHUE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ref_Role" EntityType="Self.Ref_Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__DVKHACH__MADK__31EC6D26" Association="Self.FK__DVKHACH__MADK__31EC6D26">
-            <End Role="PHONGTHUE" EntitySet="PHONGTHUE" />
-            <End Role="DVKHACH" EntitySet="DVKHACH" />
-          </AssociationSet>
-          <AssociationSet Name="FK__DVKHACH__MADV__32E0915F" Association="Self.FK__DVKHACH__MADV__32E0915F">
-            <End Role="DICHVU" EntitySet="DICHVU" />
-            <End Role="DVKHACH" EntitySet="DVKHACH" />
-          </AssociationSet>
           <AssociationSet Name="FK__HOADON__MADK__33D4B598" Association="Self.FK__HOADON__MADK__33D4B598">
             <End Role="PHONGTHUE" EntitySet="PHONGTHUE" />
             <End Role="HOADON" EntitySet="HOADON" />
@@ -229,6 +221,14 @@
             <End Role="PHONG" EntitySet="PHONG" />
             <End Role="PHONGTHUE" EntitySet="PHONGTHUE" />
           </AssociationSet>
+          <AssociationSet Name="FK_DK_PHONGTHUE" Association="Self.FK_DK_PHONGTHUE">
+            <End Role="PHONGTHUE" EntitySet="PHONGTHUE" />
+            <End Role="DVKH" EntitySet="DVKH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DV_DICHVU" Association="Self.FK_DV_DICHVU">
+            <End Role="DICHVU" EntitySet="DICHVU" />
+            <End Role="DVKH" EntitySet="DVKH" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -242,7 +242,7 @@
           <Property Name="MADV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TENDV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="GIADV" Type="Double" />
-          <NavigationProperty Name="PHONGTHUEs" Relationship="Self.DVKHACH" FromRole="DICHVU" ToRole="PHONGTHUE" />
+          <NavigationProperty Name="PHONGTHUEs" Relationship="Self.DVKH" FromRole="DICHVU" ToRole="PHONGTHUE" />
         </EntityType>
         <EntityType Name="HOADON">
           <Key>
@@ -304,7 +304,7 @@
           <NavigationProperty Name="HOADONs" Relationship="Self.FK__HOADON__MADK__33D4B598" FromRole="PHONGTHUE" ToRole="HOADON" />
           <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__PHONGTHUE__MAKH__20C1E124" FromRole="PHONGTHUE" ToRole="KHACHHANG" />
           <NavigationProperty Name="PHONG" Relationship="Self.FK__PHONGTHUE__SOPHO__1FCDBCEB" FromRole="PHONGTHUE" ToRole="PHONG" />
-          <NavigationProperty Name="DICHVUs" Relationship="Self.DVKHACH" FromRole="PHONGTHUE" ToRole="DICHVU" />
+          <NavigationProperty Name="DICHVUs" Relationship="Self.DVKH" FromRole="PHONGTHUE" ToRole="DICHVU" />
         </EntityType>
         <EntityType Name="Ref_Role">
           <Key>
@@ -372,11 +372,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="DVKHACH">
+        <Association Name="DVKH">
           <End Role="PHONGTHUE" Type="Self.PHONGTHUE" Multiplicity="*" />
           <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QuanLyKhachSanEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="DICHVUs" EntityType="Self.DICHVU" />
           <EntitySet Name="HOADONs" EntityType="Self.HOADON" />
           <EntitySet Name="KHACHHANGs" EntityType="Self.KHACHHANG" />
@@ -401,7 +401,7 @@
             <End Role="PHONG" EntitySet="PHONGs" />
             <End Role="PHONGTHUE" EntitySet="PHONGTHUEs" />
           </AssociationSet>
-          <AssociationSet Name="DVKHACH" Association="Self.DVKHACH">
+          <AssociationSet Name="DVKH" Association="Self.DVKH">
             <End Role="PHONGTHUE" EntitySet="PHONGTHUEs" />
             <End Role="DICHVU" EntitySet="DICHVUs" />
           </AssociationSet>
@@ -452,7 +452,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QuanLyKhachSanModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="QuanLyKhachSanModelStoreContainer" CdmEntityContainer="QuanLyKhachSanEntities">
           <EntitySetMapping Name="DICHVUs">
             <EntityTypeMapping TypeName="QuanLyKhachSanModel.DICHVU">
               <MappingFragment StoreEntitySet="DICHVU">
@@ -540,7 +540,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="DVKHACH" TypeName="QuanLyKhachSanModel.DVKHACH" StoreEntitySet="DVKHACH">
+          <AssociationSetMapping Name="DVKH" TypeName="QuanLyKhachSanModel.DVKH" StoreEntitySet="DVKH">
             <EndProperty Name="PHONGTHUE">
               <ScalarProperty Name="MADK" ColumnName="MADK" />
             </EndProperty>

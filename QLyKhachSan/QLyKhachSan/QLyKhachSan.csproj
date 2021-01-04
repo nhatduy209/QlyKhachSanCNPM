@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DICHVUsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HOADONsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\NHANVIENsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PHONGsController.cs" />
@@ -141,50 +142,50 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DICHVU.cs">
-      <DependentUpon>QLyKS.tt</DependentUpon>
+      <DependentUpon>QLKS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GenerateIDPhongThue.cs" />
     <Compile Include="Models\HOADON.cs">
-      <DependentUpon>QLyKS.tt</DependentUpon>
+      <DependentUpon>QLKS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KHACHHANG.cs">
-      <DependentUpon>QLyKS.tt</DependentUpon>
+      <DependentUpon>QLKS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NHANVIEN.cs">
-      <DependentUpon>QLyKS.tt</DependentUpon>
+      <DependentUpon>QLKS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PHONG.cs">
-      <DependentUpon>QLyKS.tt</DependentUpon>
+      <DependentUpon>QLKS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PHONGTHUE.cs">
-      <DependentUpon>QLyKS.tt</DependentUpon>
+      <DependentUpon>QLKS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QLyKS.Context.cs">
+    <Compile Include="Models\QLKS.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLyKS.Context.tt</DependentUpon>
+      <DependentUpon>QLKS.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QLyKS.cs">
+    <Compile Include="Models\QLKS.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLyKS.tt</DependentUpon>
+      <DependentUpon>QLKS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QLyKS.Designer.cs">
+    <Compile Include="Models\QLKS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLyKS.edmx</DependentUpon>
+      <DependentUpon>QLKS.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Ref_Role.cs">
-      <DependentUpon>QLyKS.tt</DependentUpon>
+      <DependentUpon>QLKS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>QLyKS.tt</DependentUpon>
+      <DependentUpon>QLKS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>QLyKS.tt</DependentUpon>
+      <DependentUpon>QLKS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>QLyKS.tt</DependentUpon>
+      <DependentUpon>QLKS.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -2329,15 +2330,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\QLyKS.Context.tt">
+    <Content Include="Models\QLKS.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QLyKS.edmx</DependentUpon>
-      <LastGenOutput>QLyKS.Context.cs</LastGenOutput>
+      <DependentUpon>QLKS.edmx</DependentUpon>
+      <LastGenOutput>QLKS.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\QLyKS.tt">
+    <Content Include="Models\QLKS.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QLyKS.edmx</DependentUpon>
-      <LastGenOutput>QLyKS.cs</LastGenOutput>
+      <DependentUpon>QLKS.edmx</DependentUpon>
+      <LastGenOutput>QLKS.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -2855,13 +2856,18 @@
     <Content Include="Areas\Admin\Views\PHONGTHUEs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\PHONGTHUEs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\PHONGTHUEs\Index.cshtml" />
-    <EntityDeploy Include="Models\QLyKS.edmx">
+    <EntityDeploy Include="Models\QLKS.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QLyKS.Designer.cs</LastGenOutput>
+      <LastGenOutput>QLKS.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\QLyKS.edmx.diagram">
-      <DependentUpon>QLyKS.edmx</DependentUpon>
+    <Content Include="Models\QLKS.edmx.diagram">
+      <DependentUpon>QLKS.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\HOADONs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HOADONs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\HOADONs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\HOADONs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HOADONs\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

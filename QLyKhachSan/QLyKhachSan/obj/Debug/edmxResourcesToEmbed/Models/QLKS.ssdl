@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyKhachSanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DICHVU">
+    <Key>
+      <PropertyRef Name="MADV" />
+    </Key>
+    <Property Name="MADV" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="TENDV" Type="nvarchar" MaxLength="20" />
+    <Property Name="GIADV" Type="float" />
+  </EntityType>
+  <EntityType Name="DVKH">
+    <Key>
+      <PropertyRef Name="MADK" />
+      <PropertyRef Name="MADV" />
+    </Key>
+    <Property Name="MADK" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MADV" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HOADON">
+    <Key>
+      <PropertyRef Name="MAHD" />
+    </Key>
+    <Property Name="MAHD" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="NGAY" Type="date" />
+    <Property Name="TONGTIEN" Type="float" />
+    <Property Name="MADK" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="MAKH" />
+    </Key>
+    <Property Name="MAKH" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="TENKH" Type="nvarchar" MaxLength="20" />
+    <Property Name="NGAYSINH" Type="date" />
+    <Property Name="GIOITINH" Type="nvarchar" MaxLength="10" />
+    <Property Name="CMND" Type="nvarchar" MaxLength="20" />
+    <Property Name="SDT" Type="int" />
+    <Property Name="QUOCTICH" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MANV" />
+    </Key>
+    <Property Name="MANV" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HOTEN" Type="nvarchar" MaxLength="20" />
+    <Property Name="NGAYSINH" Type="date" />
+    <Property Name="CMND_NV" Type="nvarchar" MaxLength="20" />
+    <Property Name="DIACHI" Type="nvarchar" MaxLength="50" />
+    <Property Name="roleID" Type="int" />
+    <Property Name="username" Type="varchar" MaxLength="20" />
+    <Property Name="password" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="PHONG">
+    <Key>
+      <PropertyRef Name="SOPHONG" />
+    </Key>
+    <Property Name="SOPHONG" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="LOAIPHONG" Type="nvarchar" MaxLength="20" />
+    <Property Name="GIAPHONG" Type="int" />
+    <Property Name="TRANGTHAI" Type="nvarchar" MaxLength="10" />
+    <Property Name="MIEUTAPHONG" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="PHONGTHUE">
+    <Key>
+      <PropertyRef Name="MADK" />
+    </Key>
+    <Property Name="MADK" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MAKH" Type="nvarchar" MaxLength="20" />
+    <Property Name="SOPHONG" Type="nvarchar" MaxLength="20" />
+    <Property Name="NGAYDEN" Type="date" />
+    <Property Name="NGAYDI" Type="date" />
+  </EntityType>
+  <EntityType Name="Ref_Role">
+    <Key>
+      <PropertyRef Name="roleID" />
+    </Key>
+    <Property Name="roleID" Type="int" Nullable="false" />
+    <Property Name="roleName" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__HOADON__MADK__33D4B598">
+    <End Role="PHONGTHUE" Type="Self.PHONGTHUE" Multiplicity="0..1" />
+    <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONGTHUE">
+        <PropertyRef Name="MADK" />
+      </Principal>
+      <Dependent Role="HOADON">
+        <PropertyRef Name="MADK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NHANVIEN__roleID__1ED998B2">
+    <End Role="Ref_Role" Type="Self.Ref_Role" Multiplicity="0..1" />
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ref_Role">
+        <PropertyRef Name="roleID" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="roleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHONGTHUE__MAKH__20C1E124">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="PHONGTHUE" Type="Self.PHONGTHUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MAKH" />
+      </Principal>
+      <Dependent Role="PHONGTHUE">
+        <PropertyRef Name="MAKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHONGTHUE__SOPHO__1FCDBCEB">
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="0..1" />
+    <End Role="PHONGTHUE" Type="Self.PHONGTHUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONG">
+        <PropertyRef Name="SOPHONG" />
+      </Principal>
+      <Dependent Role="PHONGTHUE">
+        <PropertyRef Name="SOPHONG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DK_PHONGTHUE">
+    <End Role="PHONGTHUE" Type="Self.PHONGTHUE" Multiplicity="1" />
+    <End Role="DVKH" Type="Self.DVKH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONGTHUE">
+        <PropertyRef Name="MADK" />
+      </Principal>
+      <Dependent Role="DVKH">
+        <PropertyRef Name="MADK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DV_DICHVU">
+    <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="1" />
+    <End Role="DVKH" Type="Self.DVKH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DICHVU">
+        <PropertyRef Name="MADV" />
+      </Principal>
+      <Dependent Role="DVKH">
+        <PropertyRef Name="MADV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="QuanLyKhachSanModelStoreContainer">
+    <EntitySet Name="DICHVU" EntityType="Self.DICHVU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DVKH" EntityType="Self.DVKH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHONG" EntityType="Self.PHONG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHONGTHUE" EntityType="Self.PHONGTHUE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ref_Role" EntityType="Self.Ref_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__HOADON__MADK__33D4B598" Association="Self.FK__HOADON__MADK__33D4B598">
+      <End Role="PHONGTHUE" EntitySet="PHONGTHUE" />
+      <End Role="HOADON" EntitySet="HOADON" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NHANVIEN__roleID__1ED998B2" Association="Self.FK__NHANVIEN__roleID__1ED998B2">
+      <End Role="Ref_Role" EntitySet="Ref_Role" />
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHONGTHUE__MAKH__20C1E124" Association="Self.FK__PHONGTHUE__MAKH__20C1E124">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="PHONGTHUE" EntitySet="PHONGTHUE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHONGTHUE__SOPHO__1FCDBCEB" Association="Self.FK__PHONGTHUE__SOPHO__1FCDBCEB">
+      <End Role="PHONG" EntitySet="PHONG" />
+      <End Role="PHONGTHUE" EntitySet="PHONGTHUE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DK_PHONGTHUE" Association="Self.FK_DK_PHONGTHUE">
+      <End Role="PHONGTHUE" EntitySet="PHONGTHUE" />
+      <End Role="DVKH" EntitySet="DVKH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DV_DICHVU" Association="Self.FK_DV_DICHVU">
+      <End Role="DICHVU" EntitySet="DICHVU" />
+      <End Role="DVKH" EntitySet="DVKH" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

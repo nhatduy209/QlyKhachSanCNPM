@@ -31,7 +31,7 @@ namespace QLyKhachSan.Controllers
 
             return View();
         }
-
+        
 
 
         [HttpPost]
@@ -40,7 +40,7 @@ namespace QLyKhachSan.Controllers
 
             string users = f["username"].ToString();
             string password = f["password"].ToString();
-            if (users.Length > 0 && password.Length > 0)
+            if (users.Length > 0 && password.Length > 0)    
             {
                 NHANVIEN user = db.NHANVIENs.SingleOrDefault(n => n.username == users && n.password == password);
                 var data = db.NHANVIENs.Where(s => s.username.Equals(users) && s.password.Equals(password)).ToList();
