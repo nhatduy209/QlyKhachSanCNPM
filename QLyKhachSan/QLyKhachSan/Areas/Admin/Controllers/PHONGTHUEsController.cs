@@ -7,9 +7,10 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using QLyKhachSan.Models;
-
+using QLyKhachSan.Controllers;
 namespace QLyKhachSan.Areas.Admin.Controllers
 {
+    [CheckPermission("Admin", "Nhân Viên")]
     public class PHONGTHUEsController : Controller
     {
         private QuanLyKhachSanEntities db = new QuanLyKhachSanEntities();

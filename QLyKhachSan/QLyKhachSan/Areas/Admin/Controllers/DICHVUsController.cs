@@ -11,7 +11,7 @@ using QLyKhachSan.Models;
 
 namespace QLyKhachSan.Areas.Admin.Controllers
 {
-    //[CheckPermission("Admin", "Nhân Viên")]
+    [CheckPermission("Admin", "Nhân Viên")]
     public class DICHVUsController : Controller
     {
         private QuanLyKhachSanEntities db = new QuanLyKhachSanEntities();
