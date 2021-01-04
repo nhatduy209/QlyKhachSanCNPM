@@ -12,13 +12,13 @@ namespace QLyKhachSan.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class HOADON
+    public partial class DVKH
     {
-        public string MAHD { get; set; }
-        public Nullable<System.DateTime> NGAY { get; set; }
-        public Nullable<double> TONGTIEN { get; set; }
+        public string ID { get; set; }
         public string MADK { get; set; }
+        public string MADV { get; set; }
     
+        public virtual DICHVU DICHVU { get; set; }
         public virtual PHONGTHUE PHONGTHUE { get; set; }
     }
 }

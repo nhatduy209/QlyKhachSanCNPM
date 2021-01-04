@@ -134,6 +134,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\NHANVIENsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PHONGsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PHONGTHUEsController.cs" />
     <Compile Include="Controllers\CheckPermission.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoomsController.cs" />
@@ -142,6 +143,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DICHVU.cs">
+      <DependentUpon>QLyKS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DVKH.cs">
       <DependentUpon>QLyKS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GenerateIDPhongThue.cs" />
@@ -2851,11 +2855,6 @@
     <Content Include="Assets\Source\SlickNav-master\scss\core.scss" />
     <Content Include="Assets\Source\SlickNav-master\scss\slicknav.scss" />
     <Content Include="Assets\Source\SlickNav-master\scss\theme.scss" />
-    <Content Include="Areas\Admin\Views\HOADONs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\HOADONs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\HOADONs\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\HOADONs\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\HOADONs\Index.cshtml" />
     <EntityDeploy Include="Models\QLyKS.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>QLyKS.Designer.cs</LastGenOutput>
@@ -2863,6 +2862,16 @@
     <Content Include="Models\QLyKS.edmx.diagram">
       <DependentUpon>QLyKS.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\HOADONs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HOADONs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\HOADONs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\HOADONs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HOADONs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PHONGTHUEs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\PHONGTHUEs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\PHONGTHUEs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\PHONGTHUEs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\PHONGTHUEs\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<QLyKhachSan.Models.PHONGTHUE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYDEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYDI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KHACHHANG.TENKH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PHONG.LOAIPHONG)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYDEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYDI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KHACHHANG.TENKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PHONG.LOAIPHONG)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MADK }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MADK }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MADK })
+        </td>
+    </tr>
+}
+
+</table>

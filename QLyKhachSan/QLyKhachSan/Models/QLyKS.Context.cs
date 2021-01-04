@@ -28,6 +28,7 @@ namespace QLyKhachSan.Models
         }
     
         public virtual DbSet<DICHVU> DICHVUs { get; set; }
+        public virtual DbSet<DVKH> DVKHs { get; set; }
         public virtual DbSet<HOADON> HOADONs { get; set; }
         public virtual DbSet<KHACHHANG> KHACHHANGs { get; set; }
         public virtual DbSet<NHANVIEN> NHANVIENs { get; set; }
