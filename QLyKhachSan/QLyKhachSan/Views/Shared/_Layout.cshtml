@@ -596,9 +596,13 @@
                     success: function (msg) {
                         if (msg === 'false')
                             alert("Đăng nhập thất bại");
-                        else {
-                            window.open(msg, '_Top');
-                            $("#authenticate_modal").close();
+                        if (msg == 'Admin') {
+                            alert("Đăng nhập thành công");
+                            window.open('/Admin/Phongs/Index', '_self');
+                        }
+                        if (msg == 'Nhanvien') {
+                            alert("Đăng nhập thành công");
+                            window.open('/Admin/Phongs/Index', '_self');
                         }
                     }
                 });
