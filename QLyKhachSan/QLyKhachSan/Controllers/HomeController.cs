@@ -44,6 +44,7 @@ namespace QLyKhachSan.Controllers
                 if (data.Count() > 0)
                 {
                     Session["staff"] = user.MANV;
+                    Session["roleID"] = user.roleID;
                     if (user.roleID == 4)
                         return Content("false");
                     if (user.roleID == 3)

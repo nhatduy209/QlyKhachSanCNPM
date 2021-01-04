@@ -10,14 +10,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="DVKHs">
+      <EntityTypeMapping TypeName="QuanLyKhachSanModel.DVKH">
+        <MappingFragment StoreEntitySet="DVKH">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MADK" ColumnName="MADK" />
+          <ScalarProperty Name="MADV" ColumnName="MADV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="HOADONs">
       <EntityTypeMapping TypeName="QuanLyKhachSanModel.HOADON">
         <MappingFragment StoreEntitySet="HOADON">
           <ScalarProperty Name="MAHD" ColumnName="MAHD" />
-          <ScalarProperty Name="MADV" ColumnName="MADV" />
-          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
           <ScalarProperty Name="NGAY" ColumnName="NGAY" />
           <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
+          <ScalarProperty Name="MADK" ColumnName="MADK" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -51,11 +59,11 @@
     <EntitySetMapping Name="PHONGs">
       <EntityTypeMapping TypeName="QuanLyKhachSanModel.PHONG">
         <MappingFragment StoreEntitySet="PHONG">
-          <ScalarProperty Name="MIEUTAPHONG" ColumnName="MIEUTAPHONG" />
           <ScalarProperty Name="SOPHONG" ColumnName="SOPHONG" />
           <ScalarProperty Name="LOAIPHONG" ColumnName="LOAIPHONG" />
           <ScalarProperty Name="GIAPHONG" ColumnName="GIAPHONG" />
           <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+          <ScalarProperty Name="MIEUTAPHONG" ColumnName="MIEUTAPHONG" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -113,13 +121,5 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="QuanLyKhachSanModel.Store.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="QuanLyKhachSanModel.Store.sp_upgraddiagrams" />
-    <EntitySetMapping Name="DVKHACHes">
-      <EntityTypeMapping TypeName="QuanLyKhachSanModel.DVKHACH">
-        <MappingFragment StoreEntitySet="DVKHACH">
-          <ScalarProperty Name="MADV" ColumnName="MADV" />
-          <ScalarProperty Name="MADK" ColumnName="MADK" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

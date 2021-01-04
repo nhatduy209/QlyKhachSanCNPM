@@ -266,11 +266,17 @@
                                     var TypeOfRoom = context.PHONGs.ToList();
                                     <select name="rooms" id="rooms">
                                         @{
+                                            string duplicate = "";
                                             foreach (var item in TypeOfRoom)
                                             {
+                                                if (duplicate.Contains(item.LOAIPHONG) == false)
+                                                {
+                                                    duplicate += item.LOAIPHONG;
                                                 <option value="@item.LOAIPHONG"> @item.LOAIPHONG </option>
-                                            }
-                                        }
+                                                    }
+
+                                                }
+                                          }
                                     </select>
                                 }
 

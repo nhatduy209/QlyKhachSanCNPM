@@ -18,8 +18,8 @@ namespace QLyKhachSan.Controllers
         {
             try
             {
-                var roleId = Convert.ToInt32(httpContext.Session["roleId"]);
-                using (var context = new QuanLyKhachSanEntities())
+                var roleId = Convert.ToInt32(httpContext.Session["roleID"]);
+                using (var context = new QuanLyKhachSanEntities()) 
                 {
                     var roleObj = context.Ref_Role.Find(roleId);
                     if (context.Ref_Role.Find(roleId) == null)
