@@ -18,6 +18,7 @@ namespace QLyKhachSan.Models
         public Nullable<System.DateTime> NGAY { get; set; }
         public Nullable<double> TONGTIEN { get; set; }
         public string MADK { get; set; }
+        public string PHONGDATHUE { get; set; }
     
         public virtual PHONGTHUE PHONGTHUE { get; set; }
     }

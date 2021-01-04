@@ -98,8 +98,12 @@ namespace QLyKhachSan.Controllers
             var PhongThue = new PHONGTHUE();
             string idPhongThue = new GenerateIDPhongThue().generateID();
             // check phòng 
+            
             var phongTrong = db.PHONGs.Where(x => x.LOAIPHONG == rooms && x.TRANGTHAI == "false").FirstOrDefault();
-
+            if(phongTrong == null)
+            {
+                return Content("nullRooms");
+            }    
             // tạo thông tin khách hàng 
             var khachHang = new KHACHHANG();
             khachHang.MAKH = new GenerateIDPhongThue().generateIDKH();

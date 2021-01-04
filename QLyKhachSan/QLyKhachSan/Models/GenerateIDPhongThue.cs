@@ -43,5 +43,11 @@ namespace QLyKhachSan.Models
             return genID;
         }
 
+        public string generateIDBill()
+        {
+            string id = Guid.NewGuid().ToString("N").Substring(0, 10);
+            string genID = "Bill-" + id;
+            return genID;
+        }
     }
 }
