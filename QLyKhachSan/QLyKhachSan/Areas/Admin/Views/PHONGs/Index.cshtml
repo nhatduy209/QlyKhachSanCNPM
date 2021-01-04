@@ -22,6 +22,7 @@
         <th>
             @Html.DisplayNameFor(model => model.GIAPHONG)
         </th>
+        <th>Tình trạng phòng</th>
         <th></th>
     </tr>
 
@@ -35,6 +36,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.GIAPHONG)
             </td>
+            <td>@item.LOAIPHONG </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.SOPHONG }) |
                 @Html.ActionLink("Details", "Details", new { id = item.SOPHONG }) |

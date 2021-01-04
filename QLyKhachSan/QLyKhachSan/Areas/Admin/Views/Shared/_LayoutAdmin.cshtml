@@ -68,6 +68,7 @@
                         <a class="collapse-item" href="/Admin/DICHVUs/Index">Dịch vụ </a>
                         <a class="collapse-item" href="/Admin/PHONGs/Index">Phòng </a>
                         <a class="collapse-item" href="/Admin/HOADONs/Index">Hóa đơn </a>
+                        <a class="collapse-item" href="/Admin/PHONGTHUEs/Index">Phòng thuê </a>
                     </div>
                 </div>
             </li>
@@ -302,14 +303,14 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                @*@{ 
+                                @{ 
                                     var db = new QLyKhachSan.Models.QuanLyKhachSanEntities();
                                     var x = Session["staff"].ToString();
                                     var NV = db.NHANVIENs.Find(x);
 
-                                }*@
+                                }
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-                                    @*@NV.HOTEN*@
+                                    @NV.HOTEN
                                 </span>
                                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                             </a>
