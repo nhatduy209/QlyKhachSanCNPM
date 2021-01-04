@@ -284,19 +284,22 @@
                                     <label>
                                         Swiming pool
                                     </label>
-                                    <input type="checkbox" id="pool">
+                                    <input type="checkbox" id="pool"> 
+                                    <span> 100000 VND</span>
                                 </div>
                                 <div>
                                     <label>
                                         Bar
                                     </label>
                                     <input type="checkbox" id="bar">
+                                    <span> 500000 VND</span>
                                 </div>
                                 <div>
                                     <label>
                                         Gym
                                     </label>
                                     <input type="checkbox" id="gym">
+                                    <span> 200000 VND</span>
                                 </div>
 
                                 <div>
@@ -344,7 +347,13 @@
                 data: formdata,
                 url: '/Rooms/Booking?dtp_from=' + formdata.dtp_from + '&dtp_from=' + formdata.dtp_to + '&people=' + formdata.people + '&quantity=' + formdata.quantity + '&pool=' + formdata.pool + '&bar=' + formdata.bar + '&gym=' + formdata.gym + '&rooms=' + formdata.rooms + '&fullname=' + formdata.fullname + '&phonenum=' + formdata.phonenum,
                 success: function (msg) {
-                    alert(msg);
+                    if (msg === 'true') {
+                        alert("Đặt phòng thành công , hãy đến checkin đúng lịch nhé !! ");
+                        window.open("/Home/Index", '_self');
+                    }
+                    else if (msg == 'nullRooms') {
+                        alert("Phòng loại này đã hết , hãy đặt phòng khác nhé ");
+                    }
                 },
                 Error: function () {
                     alert("Chưa đặt được phòng, Xem kỹ thông tin rồi nhập lại");

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QuanLyKhachSanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QuanLyKhachSanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="DICHVU">
           <Key>
             <PropertyRef Name="MADV" />
@@ -29,6 +29,7 @@
           <Property Name="NGAY" Type="date" />
           <Property Name="TONGTIEN" Type="float" />
           <Property Name="MADK" Type="nvarchar" MaxLength="20" />
+          <Property Name="PHONGDATHUE" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="KHACHHANG">
           <Key>
@@ -230,8 +231,7 @@
             <End Role="DVKH" EntitySet="DVKH" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QuanLyKhachSanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -263,6 +263,7 @@
           <Property Name="TONGTIEN" Type="Double" />
           <Property Name="MADK" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="PHONGTHUE" Relationship="Self.FK__HOADON__MADK__33D4B598" FromRole="HOADON" ToRole="PHONGTHUE" />
+          <Property Name="PHONGDATHUE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="KHACHHANG">
           <Key>
@@ -509,6 +510,7 @@
           <EntitySetMapping Name="HOADONs">
             <EntityTypeMapping TypeName="QuanLyKhachSanModel.HOADON">
               <MappingFragment StoreEntitySet="HOADON">
+                <ScalarProperty Name="PHONGDATHUE" ColumnName="PHONGDATHUE" />
                 <ScalarProperty Name="MAHD" ColumnName="MAHD" />
                 <ScalarProperty Name="NGAY" ColumnName="NGAY" />
                 <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />

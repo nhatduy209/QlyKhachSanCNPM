@@ -23,7 +23,7 @@ namespace QLyKhachSan.Areas.Admin.Controllers
         }
 
         // GET: Admin/PHONGs/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
@@ -79,7 +79,7 @@ namespace QLyKhachSan.Areas.Admin.Controllers
         }
 
         // GET: Admin/PHONGs/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
@@ -110,7 +110,7 @@ namespace QLyKhachSan.Areas.Admin.Controllers
         }
 
         // GET: Admin/PHONGs/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
@@ -127,9 +127,15 @@ namespace QLyKhachSan.Areas.Admin.Controllers
         // POST: Admin/PHONGs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
             PHONG pHONG = db.PHONGs.Find(id);
+            var thuephExist = db.PHONGTHUEs.Where(x => x.SOPHONG == id).SingleOrDefault();
+            if (thuephExist != null)
+            {
+                thuephExist.SOPHONG = null; 
+                db.SaveChanges();
+            }
             db.PHONGs.Remove(pHONG);
             db.SaveChanges();
             return RedirectToAction("Index");

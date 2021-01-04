@@ -28,6 +28,7 @@
     <Property Name="TONGTIEN" Type="Double" />
     <Property Name="MADK" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="PHONGTHUE" Relationship="Self.FK__HOADON__MADK__33D4B598" FromRole="HOADON" ToRole="PHONGTHUE" />
+    <Property Name="PHONGDATHUE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="KHACHHANG">
     <Key>

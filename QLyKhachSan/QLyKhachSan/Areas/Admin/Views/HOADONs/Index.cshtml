@@ -19,28 +19,48 @@
             @Html.DisplayNameFor(model => model.TONGTIEN)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PHONGTHUE.MAKH)
+            @Html.DisplayNameFor(model => model.PHONGTHUE.KHACHHANG.TENKH)
+        </th>
+        <th>
+            Dịch vụ
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NGAY)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TONGTIEN)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PHONGTHUE.MAKH)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MAHD }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MAHD }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MAHD })
-        </td>
-    </tr>
-}
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NGAY)
+            </td>
+            <td>
+                    @item.TONGTIEN
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PHONGTHUE.KHACHHANG.TENKH)
+            </td>
+            <td>
+                @{
+                    string dichvuKH = "";
+                    var db =  new QLyKhachSan.Models.QuanLyKhachSanEntities();
+                    var dichvu = db.DVKHs.Where(x => x.MADK == item.MADK).ToList();
+                    foreach( var dv in dichvu)
+                    {
+                        dichvuKH += dv.DICHVU.TENDV + ", ";
+                    }
+
+                }
+                @dichvuKH
+                
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MAHD }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MAHD }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MAHD })
+            </td>
+        </tr>
+    }
 
 </table>

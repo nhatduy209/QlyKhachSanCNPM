@@ -24,6 +24,7 @@
     <Property Name="NGAY" Type="date" />
     <Property Name="TONGTIEN" Type="float" />
     <Property Name="MADK" Type="nvarchar" MaxLength="20" />
+    <Property Name="PHONGDATHUE" Type="nvarchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="KHACHHANG">
     <Key>

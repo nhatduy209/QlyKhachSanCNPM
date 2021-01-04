@@ -2862,7 +2862,6 @@
     <Content Include="Models\QLyKS.edmx.diagram">
       <DependentUpon>QLyKS.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\HOADONs\Create.cshtml" />
     <Content Include="Areas\Admin\Views\HOADONs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\HOADONs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\HOADONs\Edit.cshtml" />

@@ -37,31 +37,17 @@ namespace QLyKhachSan.Areas.Admin.Controllers
         }
 
         // GET: Admin/PHONGTHUEs/Create
-        public ActionResult Create()
-        {
-            ViewBag.MAKH = new SelectList(db.KHACHHANGs, "MAKH", "TENKH");
-            ViewBag.SOPHONG = new SelectList(db.PHONGs, "SOPHONG", "LOAIPHONG");
-            return View();
-        }
+        //public ActionResult Create()
+        //{
+        //    ViewBag.MAKH = new SelectList(db.KHACHHANGs, "MAKH", "TENKH");
+        //    ViewBag.SOPHONG = new SelectList(db.PHONGs, "SOPHONG", "LOAIPHONG");
+        //    return View();
+        //}
 
         // POST: Admin/PHONGTHUEs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MADK,MAKH,SOPHONG,NGAYDEN,NGAYDI")] PHONGTHUE pHONGTHUE)
-        {
-            if (ModelState.IsValid)
-            {
-                db.PHONGTHUEs.Add(pHONGTHUE);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            ViewBag.MAKH = new SelectList(db.KHACHHANGs, "MAKH", "TENKH", pHONGTHUE.MAKH);
-            ViewBag.SOPHONG = new SelectList(db.PHONGs, "SOPHONG", "LOAIPHONG", pHONGTHUE.SOPHONG);
-            return View(pHONGTHUE);
-        }
+ 
 
         // GET: Admin/PHONGTHUEs/Edit/5
         public ActionResult Edit(string id)
