@@ -10,8 +10,6 @@ using QLyKhachSan.Models;
 
 namespace QLyKhachSan.Areas.Admin.Controllers
 {
-    [CheckPermission("Admin", "Nhân Viên")]
-
     public class HOADONsController : Controller
     {
         private QuanLyKhachSanEntities db = new QuanLyKhachSanEntities();
@@ -19,12 +17,12 @@ namespace QLyKhachSan.Areas.Admin.Controllers
         // GET: Admin/HOADONs
         public ActionResult Index()
         {
-            var hOADONs = db.HOADONs.Include(h => h.DICHVU).Include(h => h.KHACHHANG);
+            var hOADONs = db.HOADONs.Include(h => h.PHONGTHUE);
             return View(hOADONs.ToList());
         }
 
         // GET: Admin/HOADONs/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
@@ -41,8 +39,7 @@ namespace QLyKhachSan.Areas.Admin.Controllers
         // GET: Admin/HOADONs/Create
         public ActionResult Create()
         {
-            ViewBag.MADV = new SelectList(db.DICHVUs, "MADV", "TENDV");
-            ViewBag.MAKH = new SelectList(db.KHACHHANGs, "MAKH", "TENKH");
+            ViewBag.MADK = new SelectList(db.PHONGTHUEs, "MADK", "MAKH");
             return View();
         }
 
@@ -51,7 +48,7 @@ namespace QLyKhachSan.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MAHD,TENHD,MADV,MAKH,NGAY,TONGTIEN")] HOADON hOADON)
+        public ActionResult Create([Bind(Include = "MAHD,NGAY,TONGTIEN,MADK")] HOADON hOADON)
         {
             if (ModelState.IsValid)
             {
@@ -60,13 +57,12 @@ namespace QLyKhachSan.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MADV = new SelectList(db.DICHVUs, "MADV", "TENDV", hOADON.MADV);
-            ViewBag.MAKH = new SelectList(db.KHACHHANGs, "MAKH", "TENKH", hOADON.MAKH);
+            ViewBag.MADK = new SelectList(db.PHONGTHUEs, "MADK", "MAKH", hOADON.MADK);
             return View(hOADON);
         }
 
         // GET: Admin/HOADONs/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
@@ -77,8 +73,7 @@ namespace QLyKhachSan.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.MADV = new SelectList(db.DICHVUs, "MADV", "TENDV", hOADON.MADV);
-            ViewBag.MAKH = new SelectList(db.KHACHHANGs, "MAKH", "TENKH", hOADON.MAKH);
+            ViewBag.MADK = new SelectList(db.PHONGTHUEs, "MADK", "MAKH", hOADON.MADK);
             return View(hOADON);
         }
 
@@ -87,7 +82,7 @@ namespace QLyKhachSan.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MAHD,TENHD,MADV,MAKH,NGAY,TONGTIEN")] HOADON hOADON)
+        public ActionResult Edit([Bind(Include = "MAHD,NGAY,TONGTIEN,MADK")] HOADON hOADON)
         {
             if (ModelState.IsValid)
             {
@@ -95,13 +90,12 @@ namespace QLyKhachSan.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MADV = new SelectList(db.DICHVUs, "MADV", "TENDV", hOADON.MADV);
-            ViewBag.MAKH = new SelectList(db.KHACHHANGs, "MAKH", "TENKH", hOADON.MAKH);
+            ViewBag.MADK = new SelectList(db.PHONGTHUEs, "MADK", "MAKH", hOADON.MADK);
             return View(hOADON);
         }
 
         // GET: Admin/HOADONs/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
@@ -118,7 +112,7 @@ namespace QLyKhachSan.Areas.Admin.Controllers
         // POST: Admin/HOADONs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
             HOADON hOADON = db.HOADONs.Find(id);
             db.HOADONs.Remove(hOADON);

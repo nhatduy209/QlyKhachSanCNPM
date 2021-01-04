@@ -17,8 +17,7 @@ namespace QLyKhachSan.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DICHVU()
         {
-            this.HOADONs = new HashSet<HOADON>();
-            this.PHONGTHUEs = new HashSet<PHONGTHUE>();
+            this.DVKHs = new HashSet<DVKH>();
         }
     
         public string MADV { get; set; }
@@ -26,8 +25,6 @@ namespace QLyKhachSan.Models
         public Nullable<double> GIADV { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HOADON> HOADONs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PHONGTHUE> PHONGTHUEs { get; set; }
+        public virtual ICollection<DVKH> DVKHs { get; set; }
     }
 }

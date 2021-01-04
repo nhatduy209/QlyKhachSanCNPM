@@ -122,10 +122,38 @@ namespace QLyKhachSan.Controllers
             db.PHONGTHUEs.Add(PhongThue);
             db.SaveChanges();
 
-            // tạo thông tin lưu dịch vụ
-                
-
-
+            // tạo thông tin lưu dịch vụ   
+            if(pool == "true")
+            {
+                string idBooking = new GenerateIDPhongThue().generateIDServiceBooking();
+                var DVKH = new DVKH();
+                DVKH.ID = idBooking;
+                DVKH.MADV = "1";
+                DVKH.MADK = idPhongThue;
+                db.DVKHs.Add(DVKH);
+                db.SaveChanges();
+            }
+            if (bar == "true")
+            {
+                string idBooking = new GenerateIDPhongThue().generateIDServiceBooking();
+                var DVKH = new DVKH();
+                DVKH.ID = idBooking;
+                DVKH.MADV = "2";
+                DVKH.MADK = idPhongThue;
+                db.DVKHs.Add(DVKH);
+                db.SaveChanges();
+            }
+             if (gym == "true")
+            {
+                string idBooking = new GenerateIDPhongThue().generateIDServiceBooking();
+                var DVKH = new DVKH();
+                DVKH.ID = idBooking;
+                DVKH.MADV = "3";
+                DVKH.MADK = idPhongThue;
+                db.DVKHs.Add(DVKH);
+                db.SaveChanges();
+            }
+        
 
 
             return Content("true");

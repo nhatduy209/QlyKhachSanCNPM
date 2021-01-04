@@ -36,5 +36,12 @@ namespace QLyKhachSan.Models
             return genID;
         }
 
+        public string generateIDServiceBooking()
+        {
+            string id = Guid.NewGuid().ToString("N").Substring(0, 10);
+            string genID = "DVBooking" + id;
+            return genID;
+        }
+
     }
 }
