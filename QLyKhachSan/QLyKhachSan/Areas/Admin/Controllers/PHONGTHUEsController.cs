@@ -10,112 +10,116 @@ using QLyKhachSan.Models;
 
 namespace QLyKhachSan.Areas.Admin.Controllers
 {
-    public class HOADONsController : Controller
+    public class PHONGTHUEsController : Controller
     {
         private QuanLyKhachSanEntities db = new QuanLyKhachSanEntities();
 
-        // GET: Admin/HOADONs
+        // GET: Admin/PHONGTHUEs
         public ActionResult Index()
         {
-            var hOADONs = db.HOADONs.Include(h => h.PHONGTHUE);
-            return View(hOADONs.ToList());
+            var pHONGTHUEs = db.PHONGTHUEs.Include(p => p.KHACHHANG).Include(p => p.PHONG);
+            return View(pHONGTHUEs.ToList());
         }
 
-        // GET: Admin/HOADONs/Details/5
+        // GET: Admin/PHONGTHUEs/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HOADON hOADON = db.HOADONs.Find(id);
-            if (hOADON == null)
+            PHONGTHUE pHONGTHUE = db.PHONGTHUEs.Find(id);
+            if (pHONGTHUE == null)
             {
                 return HttpNotFound();
             }
-            return View(hOADON);
+            return View(pHONGTHUE);
         }
 
-        // GET: Admin/HOADONs/Create
+        // GET: Admin/PHONGTHUEs/Create
         public ActionResult Create()
         {
-            ViewBag.MADK = new SelectList(db.PHONGTHUEs, "MADK", "MAKH");
+            ViewBag.MAKH = new SelectList(db.KHACHHANGs, "MAKH", "TENKH");
+            ViewBag.SOPHONG = new SelectList(db.PHONGs, "SOPHONG", "LOAIPHONG");
             return View();
         }
 
-        // POST: Admin/HOADONs/Create
+        // POST: Admin/PHONGTHUEs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MAHD,NGAY,TONGTIEN,MADK")] HOADON hOADON)
+        public ActionResult Create([Bind(Include = "MADK,MAKH,SOPHONG,NGAYDEN,NGAYDI")] PHONGTHUE pHONGTHUE)
         {
             if (ModelState.IsValid)
             {
-                db.HOADONs.Add(hOADON);
+                db.PHONGTHUEs.Add(pHONGTHUE);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MADK = new SelectList(db.PHONGTHUEs, "MADK", "MAKH", hOADON.MADK);
-            return View(hOADON);
+            ViewBag.MAKH = new SelectList(db.KHACHHANGs, "MAKH", "TENKH", pHONGTHUE.MAKH);
+            ViewBag.SOPHONG = new SelectList(db.PHONGs, "SOPHONG", "LOAIPHONG", pHONGTHUE.SOPHONG);
+            return View(pHONGTHUE);
         }
 
-        // GET: Admin/HOADONs/Edit/5
+        // GET: Admin/PHONGTHUEs/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HOADON hOADON = db.HOADONs.Find(id);
-            if (hOADON == null)
+            PHONGTHUE pHONGTHUE = db.PHONGTHUEs.Find(id);
+            if (pHONGTHUE == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MADK = new SelectList(db.PHONGTHUEs, "MADK", "MAKH", hOADON.MADK);
-            return View(hOADON);
+            ViewBag.MAKH = new SelectList(db.KHACHHANGs, "MAKH", "TENKH", pHONGTHUE.MAKH);
+            ViewBag.SOPHONG = new SelectList(db.PHONGs, "SOPHONG", "LOAIPHONG", pHONGTHUE.SOPHONG);
+            return View(pHONGTHUE);
         }
 
-        // POST: Admin/HOADONs/Edit/5
+        // POST: Admin/PHONGTHUEs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MAHD,NGAY,TONGTIEN,MADK")] HOADON hOADON)
+        public ActionResult Edit([Bind(Include = "MADK,MAKH,SOPHONG,NGAYDEN,NGAYDI")] PHONGTHUE pHONGTHUE)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(hOADON).State = EntityState.Modified;
+                db.Entry(pHONGTHUE).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MADK = new SelectList(db.PHONGTHUEs, "MADK", "MAKH", hOADON.MADK);
-            return View(hOADON);
+            ViewBag.MAKH = new SelectList(db.KHACHHANGs, "MAKH", "TENKH", pHONGTHUE.MAKH);
+            ViewBag.SOPHONG = new SelectList(db.PHONGs, "SOPHONG", "LOAIPHONG", pHONGTHUE.SOPHONG);
+            return View(pHONGTHUE);
         }
 
-        // GET: Admin/HOADONs/Delete/5
+        // GET: Admin/PHONGTHUEs/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HOADON hOADON = db.HOADONs.Find(id);
-            if (hOADON == null)
+            PHONGTHUE pHONGTHUE = db.PHONGTHUEs.Find(id);
+            if (pHONGTHUE == null)
             {
                 return HttpNotFound();
             }
-            return View(hOADON);
+            return View(pHONGTHUE);
         }
 
-        // POST: Admin/HOADONs/Delete/5
+        // POST: Admin/PHONGTHUEs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            HOADON hOADON = db.HOADONs.Find(id);
-            db.HOADONs.Remove(hOADON);
+            PHONGTHUE pHONGTHUE = db.PHONGTHUEs.Find(id);
+            db.PHONGTHUEs.Remove(pHONGTHUE);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

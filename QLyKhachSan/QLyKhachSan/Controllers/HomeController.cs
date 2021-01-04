@@ -47,7 +47,7 @@ namespace QLyKhachSan.Controllers
                     Session["roleID"] = user.roleID;
                     if (user.roleID == 4)
                         return Content("false");
-                    if (user.roleID == 3)
+                    if (user.roleID == 1)
                         return Redirect("/Admin/PHONGs/Index");
                     if (user.roleID == 2)
                         return Redirect("/Admin/PHONGs/Index");

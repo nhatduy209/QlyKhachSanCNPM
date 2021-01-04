@@ -134,6 +134,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\NHANVIENsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PHONGsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PHONGTHUEsController.cs" />
     <Compile Include="Controllers\CheckPermission.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoomsController.cs" />
@@ -2866,6 +2867,11 @@
     <Content Include="Areas\Admin\Views\HOADONs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\HOADONs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\HOADONs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PHONGTHUEs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\PHONGTHUEs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\PHONGTHUEs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\PHONGTHUEs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\PHONGTHUEs\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
