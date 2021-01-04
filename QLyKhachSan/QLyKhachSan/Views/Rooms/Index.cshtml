@@ -1,8 +1,8 @@
-﻿
-@{ 
+﻿@model List<QLyKhachSan.Models.PHONG>
+@{
     ViewBag.Title = "Index";
     Layout = null;
-    }
+}
 
 <!DOCTYPE html>
 <html lang="zxx">
@@ -15,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hotel | Template</title>
 
-   
+
     <link href="https://fonts.googleapis.com/css?family=Taviraj:300,400,500,600,700,800,900&display=swap"
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
@@ -33,12 +33,12 @@
 </head>
 
 <body>
-   
+
     <div id="preloder">
         <div class="loader"></div>
     </div>
 
-   
+
     <header class="header-section other-page">
         <div class="container-fluid">
             <div class="inner-header">
@@ -80,7 +80,7 @@
             </div>
         </div>
     </header>
-  
+
     <section class="hero-section set-bg" data-setbg="Assets/img/rooms-bg.jpg">
         <div class="hero-text">
             <div class="container">
@@ -96,232 +96,69 @@
             </div>
         </div>
     </section>
-  
+
     <section class="room-section spad">
         <div class="container">
-            <div class="rooms-page-item">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="room-pic-slider owl-carousel">
-                            <div class="single-room-pic">
-                                <img src="~/Assets/img/room/rooms-1.jpg" alt="">
-                            </div>
-                            <div class="single-room-pic">
-                                <img src="~/Assets/img/room/rooms-2.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="room-text">
-                            <div class="room-title">
-                                <h2>Family Room</h2>
-                                <div class="room-price">
-                                    <span>From</span>
-                                    <h2>$200</h2>
-                                    <sub>/night</sub>
+            @{ foreach (var item in Model)
+                {
+                    <div class="rooms-page-item">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="room-pic-slider owl-carousel">
+                                    <div class="single-room-pic">
+                                        <img src="~/Assets/img/room/rooms-1.jpg" alt="">
+                                    </div>
+                                    <div class="single-room-pic">
+                                        <img src="~/Assets/img/room/rooms-2.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="room-desc">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mauris, bibendum
-                                    eget sapien ac, ultrices rhoncus ipsum.
-                                </p>
-                            </div>
-                            <div class="room-features">
-                                <div class="room-info">
-                                    <i class="flaticon-019-television"></i>
-                                    <span>Smart TV</span>
+                            <div class="col-lg-6">
+                                <div class="room-text">
+                                    <div class="room-title">
+                                        <h2> @item.LOAIPHONG</h2>
+                                        <div class="room-price">
+                                            <span>From</span>
+                                            <h2>@item.GIAPHONG VNĐ</h2>
+                                            <sub>/night</sub>
+                                        </div>
+                                    </div>
+                                    <div class="room-desc">
+                                        <p>
+                                            @item.MIEUTAPHONG
+                                        </p>
+                                    </div>
+                                    <div class="room-features">
+                                        <div class="room-info">
+                                            <i class="flaticon-019-television"></i>
+                                            <span>Smart TV</span>
+                                        </div>
+                                        <div class="room-info">
+                                            <i class="flaticon-029-wifi"></i>
+                                            <span>High Wi-fii</span>
+                                        </div>
+                                        <div class="room-info">
+                                            <i class="flaticon-003-air-conditioner"></i>
+                                            <span>AC</span>
+                                        </div>
+                                        <div class="room-info">
+                                            <i class="flaticon-036-parking"></i>
+                                            <span>Parking</span>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="primary-btn" data-toggle="modal" data-target="#exampleModal">Book Now <i class="lnr lnr-arrow-right"></i></a>
                                 </div>
-                                <div class="room-info">
-                                    <i class="flaticon-029-wifi"></i>
-                                    <span>High Wi-fii</span>
-                                </div>
-                                <div class="room-info">
-                                    <i class="flaticon-003-air-conditioner"></i>
-                                    <span>AC</span>
-                                </div>
-                                <div class="room-info">
-                                    <i class="flaticon-036-parking"></i>
-                                    <span>Parking</span>
-                                </div>
-                                <div class="room-info last">
-                                    <i class="flaticon-007-swimming-pool"></i>
-                                    <span>Pool</span>
-                                </div>
-                            </div>
-                            <a href="#" class="primary-btn" data-toggle="modal" data-target="#exampleModal">Book Now <i class="lnr lnr-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="rooms-page-item">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="room-pic-slider owl-carousel">
-                            <div class="single-room-pic">
-                                <img src="~/Assets/img/room/rooms-3.jpg" alt="">
-                            </div>
-                            <div class="single-room-pic">
-                                <img src="~/Assets/img/room/rooms-2.jpg" alt="">
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="room-text">
-                            <div class="room-title">
-                                <h2>Double Room</h2>
-                                <div class="room-price">
-                                    <span>From</span>
-                                    <h2>$179</h2>
-                                    <sub>/night</sub>
-                                </div>
-                            </div>
-                            <div class="room-desc">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mauris, bibendum
-                                    eget sapien ac, ultrices rhoncus ipsum.
-                                </p>
-                            </div>
-                            <div class="room-features">
-                                <div class="room-info">
-                                    <i class="flaticon-019-television"></i>
-                                    <span>Smart TV</span>
-                                </div>
-                                <div class="room-info">
-                                    <i class="flaticon-029-wifi"></i>
-                                    <span>High Wi-fii</span>
-                                </div>
-                                <div class="room-info">
-                                    <i class="flaticon-003-air-conditioner"></i>
-                                    <span>AC</span>
-                                </div>
-                                <div class="room-info">
-                                    <i class="flaticon-036-parking"></i>
-                                    <span>Parking</span>
-                                </div>
-                                <div class="room-info last">
-                                    <i class="flaticon-007-swimming-pool"></i>
-                                    <span>Pool</span>
-                                </div>
-                            </div>
-                            <a href="#" class="primary-btn" data-toggle="modal" data-target="#exampleModal">Book Now <i class="lnr lnr-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="rooms-page-item">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="room-pic-slider owl-carousel">
-                            <div class="single-room-pic">
-                                <img src="~/Assets/img/room/rooms-4.jpg" alt="">
-                            </div>
-                            <div class="single-room-pic">
-                                <img src="~/Assets/img/room/rooms-2.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="room-text">
-                            <div class="room-title">
-                                <h2>Junior Suite</h2>
-                                <div class="room-price">
-                                    <span>From</span>
-                                    <h2>$252</h2>
-                                    <sub>/night</sub>
-                                </div>
-                            </div>
-                            <div class="room-desc">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mauris, bibendum
-                                    eget sapien ac, ultrices rhoncus ipsum.
-                                </p>
-                            </div>
-                            <div class="room-features">
-                                <div class="room-info">
-                                    <i class="flaticon-019-television"></i>
-                                    <span>Smart TV</span>
-                                </div>
-                                <div class="room-info">
-                                    <i class="flaticon-029-wifi"></i>
-                                    <span>High Wi-fii</span>
-                                </div>
-                                <div class="room-info">
-                                    <i class="flaticon-003-air-conditioner"></i>
-                                    <span>AC</span>
-                                </div>
-                                <div class="room-info">
-                                    <i class="flaticon-036-parking"></i>
-                                    <span>Parking</span>
-                                </div>
-                                <div class="room-info last">
-                                    <i class="flaticon-007-swimming-pool"></i>
-                                    <span>Pool</span>
-                                </div>
-                            </div>
-                            <a href="#" class="primary-btn" data-toggle="modal" data-target="#exampleModal">Book Now <i class="lnr lnr-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="rooms-page-item">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="room-pic-slider owl-carousel">
-                            <div class="single-room-pic">
-                                <img src="~/Assets/img/room/rooms-5.jpg" alt="">
-                            </div>
-                            <div class="single-room-pic">
-                                <img src="~/Assets/img/room/rooms-2.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="room-text">
-                            <div class="room-title">
-                                <h2>Standard Room</h2>
-                                <div class="room-price">
-                                    <span>From</span>
-                                    <h2>$99</h2>
-                                    <sub>/night</sub>
-                                </div>
-                            </div>
-                            <div class="room-desc">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mauris, bibendum
-                                    eget sapien ac, ultrices rhoncus ipsum.
-                                </p>
-                            </div>
-                            <div class="room-features">
-                                <div class="room-info">
-                                    <i class="flaticon-019-television"></i>
-                                    <span>Smart TV</span>
-                                </div>
-                                <div class="room-info">
-                                    <i class="flaticon-029-wifi"></i>
-                                    <span>High Wi-fii</span>
-                                </div>
-                                <div class="room-info">
-                                    <i class="flaticon-003-air-conditioner"></i>
-                                    <span>AC</span>
-                                </div>
-                                <div class="room-info">
-                                    <i class="flaticon-036-parking"></i>
-                                    <span>Parking</span>
-                                </div>
-                                <div class="room-info last">
-                                    <i class="flaticon-007-swimming-pool"></i>
-                                    <span>Pool</span>
-                                </div>
-                            </div>
-                            <a href="#" class="primary-btn" data-toggle="modal" data-target="#exampleModal" >Book Now <i class="lnr lnr-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                }
+            }
+
+
         </div>
     </section>
-  
+
+
     <footer class="footer-section">
         <div class="container">
             <div class="row">
@@ -424,12 +261,18 @@
 
 
                                 <label for="cars">Type of Room : </label>
-                                <select name="rooms" id="rooms">
-                                    <option value="Family Rooms" >Family Rooms</option>
-                                    <option value="Standard Room">Standard Room</option>
-                                    <option value="Single Room">Single Room</option>
-                                    <option value="Double Room">Double Room</option>
-                                </select>
+                                @{
+                                    var context = new QLyKhachSan.Models.QuanLyKhachSanEntities();
+                                    var TypeOfRoom = context.PHONGs.ToList();
+                                    <select name="rooms" id="rooms">
+                                        @{
+                                            foreach (var item in TypeOfRoom)
+                                            {
+                                                <option value="@item.LOAIPHONG"> @item.LOAIPHONG </option>
+                                            }
+                                        }
+                                    </select>
+                                }
 
                                 <div>
                                     <label>
@@ -463,14 +306,14 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                       
+
                     </div>
                 </div>
             </div>
         </div>
 
     </footer>
-   
+
     <script src="~/Assets/js/jquery-3.3.1.min.js"></script>
 
 
@@ -494,7 +337,7 @@
                 type: "POST",
                 data: formdata,
                 url: '/Rooms/Booking?dtp_from=' + formdata.dtp_from + '&dtp_from=' + formdata.dtp_to + '&people=' + formdata.people + '&quantity=' + formdata.quantity + '&pool=' + formdata.pool + '&bar=' + formdata.bar + '&gym=' + formdata.gym + '&rooms=' + formdata.rooms + '&fullname=' + formdata.fullname + '&phonenum=' + formdata.phonenum,
-                success: function (msg) { 
+                success: function (msg) {
                     alert(msg);
                 },
                 Error: function () {

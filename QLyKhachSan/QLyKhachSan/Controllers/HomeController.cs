@@ -46,7 +46,7 @@ namespace QLyKhachSan.Controllers
                     Session["roleId"] = user.roleID;
                     return Content("đăng nhập thành công");
                 }
-                else { return Content("đăng nhập thất bại"); }
+                return Content("đăng nhập thất bại");
             }
 
             return Content("false");

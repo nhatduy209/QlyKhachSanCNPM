@@ -13,7 +13,10 @@ namespace QLyKhachSan.Controllers
         // GET: Rooms
         public ActionResult Index()
         {
-            return View();
+            var db = new QuanLyKhachSanEntities();
+            var lsRooms = db.PHONGs.ToList();
+
+            return View(lsRooms);
         }
 
         // GET: Rooms/Details/5
@@ -107,6 +110,8 @@ namespace QLyKhachSan.Controllers
             // lưu database 
             db.SaveChanges();
 
+
+            // tạo thống tin cho phòng thuê 
             phongTrong.TRANGTHAI = "true";
             PhongThue.MADK = idPhongThue;
             PhongThue.NGAYDI  = Convert.ToDateTime(dtp_to);
@@ -116,6 +121,10 @@ namespace QLyKhachSan.Controllers
 
             db.PHONGTHUEs.Add(PhongThue);
             db.SaveChanges();
+
+            // tạo thông tin lưu dịch vụ
+                
+
 
 
 

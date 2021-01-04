@@ -24,6 +24,7 @@ namespace QLyKhachSan.Models
         public string LOAIPHONG { get; set; }
         public Nullable<int> GIAPHONG { get; set; }
         public string TRANGTHAI { get; set; }
+        public string MIEUTAPHONG { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHONGTHUE> PHONGTHUEs { get; set; }

@@ -5,40 +5,61 @@
 }
 
 
-<!-- Bar Chart -->
-<div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary"> Biểu đồ doanh thu hàng tháng</h6>
-    </div>
-    <div class="card-body">
-        <div class="chart-bar">
-            <canvas id="myChart"></canvas>
-        </div>
-        <hr>      
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Thống kê của tháng
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="/Admin/HomeAdmin/ChartBar/1">Tháng 1</a>
+        <a class="dropdown-item" href="/Admin/HomeAdmin/ChartBar/2">Tháng 2</a>
+        <a class="dropdown-item" href="/Admin/HomeAdmin/ChartBar/3">Tháng 3</a>
+        <a class="dropdown-item" href="/Admin/HomeAdmin/ChartBar/4">Tháng 4</a>
+        <a class="dropdown-item" href="/Admin/HomeAdmin/ChartBar/5">Tháng 5</a>
+        <a class="dropdown-item" href="/Admin/HomeAdmin/ChartBar/6">Tháng 6</a>
+        <a class="dropdown-item" href="/Admin/HomeAdmin/ChartBar/7">Tháng 7</a>
+        <a class="dropdown-item" href="/Admin/HomeAdmin/ChartBar/8">Tháng 8</a>
+        <a class="dropdown-item" href="/Admin/HomeAdmin/ChartBar/9">Tháng 9</a>
+        <a class="dropdown-item" href="/Admin/HomeAdmin/ChartBar/10">Tháng 10</a>
+        <a class="dropdown-item" href="/Admin/HomeAdmin/ChartBar/11">Tháng 11</a>
+        <a class="dropdown-item" href="/Admin/HomeAdmin/ChartBar/12">Tháng 12</a> 
     </div>
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-@{ 
-    var dbDoanhthu = new QLyKhachSan.Models.QuanLyKhachSanEntities();
-    // lấy ra tháng hiện tại 
-    DateTime monthNow = DateTime.Now;
-    var test1 = monthNow.Day;
-    var test2 = monthNow.Date;
-    var doanhthu = dbDoanhthu.HOADONs.Where(x => x.NGAY.Value.Month == monthNow.Month).ToList();
+<!-- Bar Chart -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary"> Biểu đồ doanh thu hàng tháng </h6>
+    </div>
+    <div class="card-body">
+        <div class="chart-bar">
+            <canvas id="myChart" width="884" height="490" class="chartjs-render-monitor" style="display: block; width: 884px; height: 430px;"></canvas>
+        </div>
+        <hr>
+    </div>
+</div>
 
-    // tính tổng doanh thu theo các kỳ 
-    // từ ngày 1-> 7 
-    var doanhthuTuan1 = dbDoanhthu.HOADONs.Where(x => x.NGAY.Value.Month == monthNow.Month && x.NGAY.Value.Day >= 1 && x.NGAY.Value.Day <= 7).ToList();
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+@{
+    var dbDoanhthu = new QLyKhachSan.Models.QuanLyKhachSanEntities();
+    // lấy ra tháng hiện tại
+    DateTime monthNow = DateTime.Now;
+    int getmonth = Convert.ToInt32(Session["month"]);
+    var doanhthu = dbDoanhthu.HOADONs.Where(x => x.NGAY.Value.Month == getmonth).ToList();
+
+    // tính tổng doanh thu theo các kỳ
+    // từ ngày 1-> 7
+    var doanhthuTuan1 = dbDoanhthu.HOADONs.Where(x => x.NGAY.Value.Month == getmonth && x.NGAY.Value.Day >= 1 && x.NGAY.Value.Day <= 7).ToList();
     var TienThuTuan1 = 0;
-    foreach ( var item in doanhthuTuan1)
+    foreach (var item in doanhthuTuan1)
     {
         TienThuTuan1 += Convert.ToInt32(item.TONGTIEN);
     }
 
-    // từ ngày 8 -> 15 
-    var doanhthuTuan2 = dbDoanhthu.HOADONs.Where(x => x.NGAY.Value.Month == monthNow.Month && x.NGAY.Value.Day > 7 && x.NGAY.Value.Day <= 16).ToList();
+    // từ ngày 8 -> 15
+    var doanhthuTuan2 = dbDoanhthu.HOADONs.Where(x => x.NGAY.Value.Month == getmonth && x.NGAY.Value.Day > 7 && x.NGAY.Value.Day <= 16).ToList();
     var TienThuTuan2 = 0;
     foreach (var item in doanhthuTuan2)
     {
@@ -46,7 +67,7 @@
     }
 
     // từ ngày 16 -> 23
-    var doanhthuTuan3 = dbDoanhthu.HOADONs.Where(x => x.NGAY.Value.Month == monthNow.Month && x.NGAY.Value.Day > 16 && x.NGAY.Value.Day <= 23).ToList();
+    var doanhthuTuan3 = dbDoanhthu.HOADONs.Where(x => x.NGAY.Value.Month == getmonth && x.NGAY.Value.Day > 16 && x.NGAY.Value.Day <= 23).ToList();
     var TienThuTuan3 = 0;
     foreach (var item in doanhthuTuan2)
     {
@@ -56,7 +77,7 @@
 
 
     // từ ngày 24 -> 30
-    var doanhthuTuan4 = dbDoanhthu.HOADONs.Where(x => x.NGAY.Value.Month == monthNow.Month && x.NGAY.Value.Day > 23 && x.NGAY.Value.Day <= 30).ToList();
+    var doanhthuTuan4 = dbDoanhthu.HOADONs.Where(x => x.NGAY.Value.Month == getmonth && x.NGAY.Value.Day > 23 && x.NGAY.Value.Day <= 30).ToList();
     var TienThuTuan4 = 0;
     foreach (var item in doanhthuTuan2)
     {
@@ -81,7 +102,7 @@
         data: {
             labels: ['ngày 1->7', 'Ngày 8->15', 'Ngày 16->23 ', 'Ngày 24->30'],
             datasets: [{
-                label: 'Biểu đồ doanh thu tháng' + @monthNow.Month,
+                label: 'Biểu đồ doanh thu tháng' + @getmonth,
                 data: [@TienThuTuan1, @TienThuTuan2, @TienThuTuan3, @TienThuTuan4],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',

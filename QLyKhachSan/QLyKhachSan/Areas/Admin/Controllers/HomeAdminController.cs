@@ -16,8 +16,19 @@ namespace QLyKhachSan.Areas.Admin.Controllers
             return View();
         }
 
-        public ActionResult ChartBar()
+        public ActionResult ChartBar(int? id)
         {
+            if (id == null)
+            {
+                DateTime monthNow = DateTime.Now;
+                ViewBag.month = monthNow.Month;
+                Session["month"] = monthNow.Month;
+            }
+            else
+            {
+                Session["month"] = id;
+                ViewBag.month = id;
+            }
             return View();
         }
     }
