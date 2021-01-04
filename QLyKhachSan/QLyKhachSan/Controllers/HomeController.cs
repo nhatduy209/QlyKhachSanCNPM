@@ -45,13 +45,11 @@ namespace QLyKhachSan.Controllers
                 {
                     Session["staff"] = user.MANV;
                     Session["roleID"] = user.roleID;
-                    if (user.roleID == 4)
-                        return Content("false");
-                    if (user.roleID == 1)
-                        return Redirect("/Admin/PHONGs/Index");
-                    if (user.roleID == 2)
-                        return Redirect("/Admin/PHONGs/Index");
-                    return Content("/Admin/PHONGs/Index");
+                    if (user.roleID == 1)  // nhân viên
+                        return Content("Nhanvien");
+                    if (user.roleID == 2) // admin 
+                        return Content("Admin");
+                    return Content("Khachhang");
                 }
                 else { return Content("false"); }
             }
