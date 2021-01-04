@@ -44,15 +44,9 @@ namespace QLyKhachSan.Controllers
                 if (data.Count() > 0)
                 {
                     Session["roleId"] = user.roleID;
-                    if (user.roleID == 4)
-                        return Content("false");
-                    if (user.roleID == 3)
-                        return Redirect("/Admin/PHONGs/Index");
-                    if (user.roleID == 2)
-                        return Redirect("/Admin/PHONGs/Index");
-                    return Content("/Admin/PHONGs/Index");
+                    return Content("đăng nhập thành công");
                 }
-                else { return Content("false"); }
+                else { return Content("đăng nhập thất bại"); }
             }
 
             return Content("false");

@@ -67,9 +67,7 @@
 
                                     <li><a href="./">News</a></li>
                                     <li><a href="./">Contact</a></li>
-                                    <button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#loginModal">
-                                        Login
-                                    </button>
+                                    <li><a data-toggle="modal" data-target="#loginModal">Login</a></li>
                                 </ul>
                             </nav>
                             <div class="top-info">
@@ -449,8 +447,6 @@
                     <h4>Login</h4>
                 </div>
                 <div class="d-flex flex-column text-center">
-
-
                     <form action="home/login" method="post" id="login_form">
                         <div class="form-group">
                             <input  type="text" class="form-control" name="username" id="email1" placeholder="Your id address...">
@@ -460,8 +456,6 @@
                         </div>
                         <input type="submit" class="btn btn-info btn-block btn-round" value="Login" />
                     </form>
-
-
                 </div>
             </div>
             <div class="modal-footer d-flex justify-content-center">
@@ -469,6 +463,7 @@
             </div>
         </div>
     </div>
+</div>
 
 
 
@@ -594,12 +589,7 @@
                     async: true,
                     data: form_data,
                     success: function (msg) {
-                        if (msg === 'false')
-                            alert("Đăng nhập thất bại");
-                        else {
-                            window.open(msg, '_Top');
-                            $("#authenticate_modal").close();
-                        }
+                        alert(msg);
                     }
                 });
                 return false;
